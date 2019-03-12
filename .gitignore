@@ -127,6 +127,11 @@ dmypy.json
 
 .sonarlint
 
+index.html
+
+sequence_figures
+sequence_figures_hourly
+
 data/PVDAQ_solar_energy_hourly_clean.json
 
 data/PVDAQ_solar_energy_hourly.json
