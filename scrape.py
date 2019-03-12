@@ -36,13 +36,13 @@ for system_id in tqdm(meta_data_dict):
     try:
         response = requests.get(api_call)
         response_io = StringIO(response.text)
-        respone_df = pd.read_csv(response_io)
+        response_df = pd.read_csv(response_io)
     except:
         continue
 
     # Create a data list: [['2011-09-21',2], ['2011-09-22', 12], ...]
-    generated = respone_df['final_yield']
-    time = respone_df['measdatetime']
+    generated = response_df['final_yield']
+    time = response_df['measdatetime']
     time_gen = list(zip(time, generated))
 
     # Save data list to dict

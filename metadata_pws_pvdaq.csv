@@ -1,0 +1,113 @@
+FID,system_id,name_public,site_latitude,site_longitude,site_elevation,site_azimuth,site_tilt,site_power,site_area,module_mfg,module_model,module_tech,inverter_mfg,inverter_model
+metadata_pws_pvdaq.1448650,1263,Residential - NOLA #20 - District E,29.9809,90.0023,10,195,28,4140,28.953,Canadian Solar,CS6P-230,Polycrystalline Silicon,PV Powered,3.5kW
+metadata_pws_pvdaq.1448651,1264,Residential - NOLA #21 - District E,29.9809,90.0023,10,195,35,4320,30.5946,Canadian Solar,CS5P-240,Polycrystalline Silicon,PV Powered,3.5kW
+metadata_pws_pvdaq.1448652,51,[51] NREL x-Si #7,39.7416,105.1734,1994.7,158,45,6000,,Siemens,M55 c-Si,,Fronius,IG 4500-LV
+metadata_pws_pvdaq.1448653,1277,[1277] Andre Agassi Preparatory Academy - Building C,36.1952,115.1582,620,180,10,40560,275.5038,Sharp ,NU-U240F1,Monocrystalline Silicon,SatCon Technology,30kW
+metadata_pws_pvdaq.1448654,1229,[1229] FSEC - Zero Energy House - Lakeland,28.0392,81.95,58,240,33.3,4050,34.15,Siemens,SP75,Monocrystalline Silicon,Trace Engineering,SW4048UPV
+metadata_pws_pvdaq.1448655,1230,[1230] FSEC - Zero Energy House - Livermore,37.6478,121.7742,150,180,,3600,35.147,Astropower,AP-100,Monocrystalline Silicon,AES,GC-100
+metadata_pws_pvdaq.1448656,1231,[1231] FSEC - Zero Energy House - New Smyrna Beach,29.0258,80.9274,2,270,20,3360,55.27,Uni-Solar,PVL-120,Amorphous Silicon (triple junction),Trace Engineering,SW4048UPV
+metadata_pws_pvdaq.1448657,1278,[1278] Andre Agassi Preparatory Academy - Building D,36.1952,115.1582,620,180,0,171360,1163.9628,Sharp ,NU-U240F1,Monocrystalline Silicon,SatCon Technology,"(1) 100kW, (1) 50kW"
+metadata_pws_pvdaq.1448658,1251,Residential - NOLA #8,,,10,185,25,5980,,Schuco,230 ESO9,,Enphase,D-380
+metadata_pws_pvdaq.1448659,1283,[1283] NREL Research Support Facility II,39.7409,105.1711,1800,165,10,408240,2115.84,Solon,Solon Black 230/01,Monocrystalline Silicon,SMA America,Sunny Central 250U
+metadata_pws_pvdaq.1448660,1256,Residential - NOLA #13 - District A South,29.9288,90.1273,10,198,0,8820,45.6596,Sunpower,315 (e19),Monocrystalline Silicon,SMA,SB4000
+metadata_pws_pvdaq.1448661,1257,Residential - NOLA #14 - District A North,30.0017,90.0926,10,244,33.3,6426,33.5907,Sunpower,238 (e19),Monocrystalline Silicon,SMA,SB6000
+metadata_pws_pvdaq.1448662,1258,Residential - NOLA #15 - District A North,30.0017,90.0926,10,96,19,19320,104.5044,Sunpower,230 (e18),Monocrystalline Silicon,SMA,(2) SB6000 & SB5000
+metadata_pws_pvdaq.1448663,1259,Residential - NOLA #16 - District A North,30.0017,90.0926,10,,,5750,41.0525,Schuco,PS09-230,Polycrystalline Silicon,Enphase,380-5
+metadata_pws_pvdaq.1448664,1260,Residential - NOLA #17 - District E,29.9809,90.0023,10,195,30,4230,30.5946,Canadian Solar,CS5P-235,Polycrystalline Silicon,PV Powered,3kW
+metadata_pws_pvdaq.1448665,1262,Residential - NOLA #19 - District E,29.9809,90.0023,10,195,30,4230,30.5946,Canadian Solar,CS5P-235,Polycrystalline Silicon,PV Powered,3kW
+metadata_pws_pvdaq.1448666,50,[50] NREL x-Si #6,39.742,105.1727,1994.7,158,45,6000,,Siemens,M55 c-SI,,Fronius,IG 4500-LV
+metadata_pws_pvdaq.1448667,53,[53] NREL CIGS#3,39.7404,105.1771,1792.2,180,40,,,,,,,
+metadata_pws_pvdaq.1448668,54,[54] NREL CIGS#4,39.7404,105.1771,1792.2,180,40,,,,,,,
+metadata_pws_pvdaq.1448669,57,[57] NREL CIGS#7,39.7404,105.1771,1792.2,180,40,,,,,,,
+metadata_pws_pvdaq.1448670,1389,"[1389] RTC,FSEC Met Station",28.405,80.7709,12,180,0,,,,,,,
+metadata_pws_pvdaq.1448671,1369,"[1369] City of Henderson, NV - Police Station",36.03,114.9839,660,,,,,,,,"SatCon, SMA","(1) SatCon, (8) SMA SB6000"
+metadata_pws_pvdaq.1448672,1367,"[1367] City of Henderson, NV - Aquatic Complex",36.033,114.9516,660,172,12,277160,1698.0581,SolarWorld,260,Monocrystalline Silicon,Solectria,"(2) PVI 95kW, (1) PVI 60kW"
+metadata_pws_pvdaq.1448673,1416,[1416] GSA Sanford Federal Building,30.2672,97.7431,200,180,10,564500,,,,,Advanced Energy,Solaron 500kW
+metadata_pws_pvdaq.1448674,1418,"[1418] Clark County, NV - Desert Breeze",36.1253,115.2713,779,138,10,42000,,SolarWorld,SW 280 Mono,,Solectria,PVI 14TL
+metadata_pws_pvdaq.1448675,1245,Residential - NOLA #2 - District B,29.951,90.0812,10,170,32,2820,20.016,Conergy,PM-235P,Polycrystalline Silicon,Fronius,IG 3.0 Plus
+metadata_pws_pvdaq.1448676,1419,"[1419] Clark County, NV - Hollywood Rec Center",36.1534,115.0256,779,210,10,40000,,SolarWorld,SW 280 Mono,,SMA,Tripower 20kW
+metadata_pws_pvdaq.1448677,1246,Residential - NOLA #3 - District A North,30.0017,90.0926,10,177,32,3600,26.7713,Schott,Poly 225,Polycrystalline Silicon,PV Powered,3500
+metadata_pws_pvdaq.1448678,1247,Residential - NOLA #4 - District B,29.951,90.0812,10,165,28,5060,36.8104,Schott,Poly 230,Polycrystalline Silicon,PV Powered,4800
+metadata_pws_pvdaq.1448679,1248,Residential - NOLA #5 - District B,29.951,90.0812,10,175,32,13200,75.6504,Sanyo,HIT-N220A,Monocrystalline Silicon,PV Powered,4800
+metadata_pws_pvdaq.1448680,1249,Residential - NOLA #6 - Jefferson Parish,29.9745,90.1563,10,199,27,4050,22.3938,Sunpower,225 (e18),Monocrystalline Silicon,SMA,SB4000
+metadata_pws_pvdaq.1448681,58,[58] NREL CIGS#8,39.7404,105.1771,1792.2,180,40,,,,,,,
+metadata_pws_pvdaq.1448682,1403,"[1403] RTC,FSEC,Baseline",28.405,80.7709,12,180,35,6000,,Suniva,OPT270-60 BLK-BLK,,,
+metadata_pws_pvdaq.1448683,1201,[1201] Distributed Sun - 5 Executive Campus,39.9283,75.0481,18,230,10,140140,959.058,,,Monocrystalline Silicon,,
+metadata_pws_pvdaq.1448684,1220,[1220] Mercury Solar Systems - Array 4,40.995,73.668,75,180,,8540,45.675,SunPower,SPR-305-WHT,Monocrystalline Silicon,SunPower,8000f
+metadata_pws_pvdaq.1448685,1221,[1221] Mercury Solar Systems - Array 11,40.995,73.668,75,180,10,8280,,Trina Solar,,,Fronius,IG+ 7.5
+metadata_pws_pvdaq.1448686,1222,[1222] Mercury Solar Systems - Array 5,40.995,73.668,75,180,5,8540,45.675,SunPower,SPR-305-WHT,Monocrystalline Silicon,SunPower,8000f
+metadata_pws_pvdaq.1448687,1233,[1233] Integrator #2 - Site B,40.728,73.891,50,,,164220,1194.67,Schott,Poly-230,Polycrystalline Silicon,SatCon Technology,Power Gate Plus 135kW
+metadata_pws_pvdaq.1448688,1234,[1234] Integrator #2 - Site C,40.444,74.5,150,224,10,889150,6381.818,Suntech,STP-275,Polycrystalline Silicon,SatCon Technology,Power Gate Plus 500kW; Power Gate Plus 250kW
+metadata_pws_pvdaq.1448689,1235,[1235] Integrator #2 - Site D,40.7,73.776,150,136,10,125580,913.57,Schott,Poly-230,Polycrystalline Silicon,SatCon Technology,Power Gate Plus 100kW
+metadata_pws_pvdaq.1448690,1239,[1239] Univ. of Maine - Presque Isle,46.6704,68.0178,197,155,10,20160,146.7144,Sharp,ND-U224C1,Polycrystalline Silicon,Solectria,PVI 13kW
+metadata_pws_pvdaq.1448691,1275,Commercial - NOLA,29.9649,90.069,10,135,30,25600,136.9788,Sunpower,305 (e18),Monocrystalline Silicon,,
+metadata_pws_pvdaq.1448692,1276,[1276] Andre Agassi Preparatory Academy - Building B,36.1952,115.1582,620,180,5,68480,410.8104,Sharp ,NU-U240F1,Monocrystalline Silicon,SatCon Technology,50kW
+metadata_pws_pvdaq.1448693,17,[17] NREL a-Si #2,39.7405,105.1728,1793.4,180,40,1200,19.881,USSC,Roof Shingle,Amorphous Silicon (triple junction),Trace,
+metadata_pws_pvdaq.1448694,18,[18] NREL umg-Si #1,39.7406,105.1774,1794.7,180,40,1260,9.644,Canadian Solar,,Upgraded Metallurgical Grade Silicon (UMG),PV Powered,
+metadata_pws_pvdaq.1448695,33,[33] Silicor Materials,39.7404,105.1772,1794.5,180,40,2400,15.76,Silicor Materials,240,Upgraded Metallurgical Grade Silicon (UMG),SMA,Sunny Boy 3000US
+metadata_pws_pvdaq.1448696,1244,Residential - NOLA #1 - District A North,30.0017,90.0926,10,185.9,17,3240,23.28,Suntech,STP-270,Polycrystalline Silicon,Solectria,PVI 3000
+metadata_pws_pvdaq.1448697,59,[59] NREL CIGS#9,39.7404,105.1771,1792.2,180,40,,,,,,,
+metadata_pws_pvdaq.1448698,1199,[1199] Distributed Sun - Hunt Valley,39.4856,76.6636,325,180,20,52920,366.544,,,Polycrystalline Silicon,,
+metadata_pws_pvdaq.1448699,1200,[1200] Distributed Sun - BWI Hilton,39.1958,76.6808,155,205,10,51840,362.162,,,Monocrystalline Silicon,,
+metadata_pws_pvdaq.1448700,1214,[1214] Mercury Solar Systems - Array 1A,40.995,73.668,75,180,10,4400,32.343,Suntech,STP-200,Polycrystalline Silicon,,
+metadata_pws_pvdaq.1448701,1219,[1219] Mercury Solar Systems - Array 10,40.995,73.668,75,180,0,8192,88.452,Solyndra,SL-001-182,Copper Indium Gallium Selenide (CIGS),Fronius,IG+ 7.5
+metadata_pws_pvdaq.1448702,1420,"[1420] Clark County, NV - Government Center",36.1654,115.1534,678,180,10,30000,,SunPower,SPR-320E-WHT-D,,PVPowered,PVP 30kW
+metadata_pws_pvdaq.1448703,1284,[1284] NREL CIGS#11,39.7405,105.1774,1793.7,180,40,,,,,Copper Indium Gallium Selenide (CIGS),,
+metadata_pws_pvdaq.1448704,1289,[1289] NREL CIGS#12,39.7405,105.1774,1793.7,180,40,,,,,Copper Indium Gallium Selenide (CIGS),,
+metadata_pws_pvdaq.1448705,1292,[1292] Residential #2,39.766,105.2387,1840,155,22.6,5170,35.864,Sharp,NU-235,Polycrystalline Silicon,SMA,SB-4000US
+metadata_pws_pvdaq.1448706,1332,[1332] NREL Parking Garage,39.7388,105.1732,1770,180,16.77,1153488,5922.7534,SunPower,"318W(x3136), 315W(496)",Monocrystalline Silicon,Satcon,"PVS-500(x2), PVS-135(x1)"
+metadata_pws_pvdaq.1448707,1368,"[1368] City of Henderson, NV - Heritage Park",36.033,114.9516,660,,,,,,,,SMA,SB6000
+metadata_pws_pvdaq.1448708,1422,"[1422] RTC,VT,Baseline",44.4665,73.1014,109,180,35,6000,,Suniva,OPT270-60 BLK-BLK,,,
+metadata_pws_pvdaq.1448709,1423,"[1423] RTC,NV,Baseline",36.0275,114.9215,697,180,35,6000,,Suniva,OPT270-60 BLK-BLK,,,
+metadata_pws_pvdaq.1448710,1424,"[1424] RTC,VT,Met Station",44.4664,73.1024,109,180,0,,,,,,,
+metadata_pws_pvdaq.1448711,1425,"[1425] RTC,NV,Met Station",36.0275,114.9215,697,180,0,,,,,,,
+metadata_pws_pvdaq.1448712,1426,"[1426] RTC,NREL,Baseline",39.7397,105.174,1750,180,30,2700,,Suniva,OPT270-60 BLK-BLK,,ABB,PVI 3k
+metadata_pws_pvdaq.1448713,1429,"[1429] RTC,SNL,Baseline",35.0549,106.5433,1658,180,35,6000,,Suniva,OPT270-60 BLK-BLK,,,
+metadata_pws_pvdaq.1448714,35,[35] Andre Agassi Preparatory Academy - Gymnasium,36.1952,115.1582,620,270,,121680,826.4911,Sharp ,NU-U240F1,Monocrystalline Silicon,SatCon Technology,135kW
+metadata_pws_pvdaq.1448715,38,[38] NREL CdTe #1d,39.7406,105.1773,1794.7,180,30,600,8.688,"Solar Cells, Inc.",50W Prototype Module,Cadmium Telluride (CdTe),SMA,
+metadata_pws_pvdaq.1448716,39,[39] NREL Ribbon Si #1c,39.7407,105.1773,1792.2,180,40,1400,7.429,Mobil,Ra 280-50H,Ribbon Silicon,,
+metadata_pws_pvdaq.1448717,1223,[1223] Mercury Solar Systems - Array 3,40.995,73.668,75,180,0,7920,118.882,UniSolar,PVL-144,Amorphous Silicon (triple junction),Fronius,IG+ 7.5
+metadata_pws_pvdaq.1448718,1224,[1224] Mercury Solar Systems - Array 9,40.995,73.668,75,180,10,8280,,Yingli,,Polycrystalline Silicon,Fronius,IG+ 7.5
+metadata_pws_pvdaq.1448719,1265,Residential - NOLA #22 - District E,29.9809,90.0023,10,195,30,2700,22.4274,Evergreen Solar,ES-180,Ribbon Silicon,Xantrex,GT 3.3kW
+metadata_pws_pvdaq.1448720,1225,[1225] Mercury Solar Systems - Array 1B,40.995,73.668,75,180,10,4400,32.343,Suntech,STP-200,Polycrystalline Silicon,,
+metadata_pws_pvdaq.1448721,1226,[1226] Mercury Solar Systems - Array 8A,40.995,73.668,75,180,10,3850,22.086,Suntech,STP-175(S)-24/Ab-1,Polycrystalline Silicon,Fronius,IG+ 3.8
+metadata_pws_pvdaq.1448722,1232,[1232] Integrator #2 - Site A,40.81,73.88,10,169,10,50490,344.557,Suntech,STP-270,Polycrystalline Silicon,SatCon Technology,Power Gate 50kW
+metadata_pws_pvdaq.1448723,1266,Residential - NOLA #23 - District E,29.9809,90.0023,10,195,35,2800,22.519,Canadian Solar,CS6P-200,Polycrystalline Silicon,SMA,SB4000
+metadata_pws_pvdaq.1448724,1267,Residential - NOLA #24 - District E,29.9809,90.0023,10,190,30,2800,22.519,Canadian Solar,CS6P-200,Polycrystalline Silicon,SMA,SB4000
+metadata_pws_pvdaq.1448725,1268,Residential - NOLA #25 - District E,29.9809,90.0023,10,195,28,4140,28.953,Canadian Solar,CS6P-230,Polycrystalline Silicon,PV Powered,3.5kW
+metadata_pws_pvdaq.1448726,1269,Residential - NOLA #26 - District E,29.9809,90.0023,10,195,30,4140,30.5946,Canadian Solar,CS5P-230,Polycrystalline Silicon,PV Powered,3.5kW
+metadata_pws_pvdaq.1448727,1270,Residential - NOLA #27 - District E,29.9809,90.0023,10,195,20,2800,22.519,Canadian Solar,CS6P-200,Polycrystalline Silicon,SMA,SB4000
+metadata_pws_pvdaq.1448728,1271,Residential - NOLA #28 - District E,29.9809,90.0023,10,195,28,4320,30.5946,Canadian Solar,CS5P-240,Polycrystalline Silicon,PV Powered,3.5kW
+metadata_pws_pvdaq.1448729,1272,Residential - NOLA #29 - District B,29.951,90.0812,10,175,30,9460,54.2161,Sanyo,HIT-220A,Monocrystalline Silicon,Aurora PowerOne,4.2kW
+metadata_pws_pvdaq.1448730,1273,Residential - NOLA #30 - District A South,29.9288,90.1273,10,225,30,5160,30.2602,Sanyo,HIT-215A,Monocrystalline Silicon,Aurora PowerOne,5.0kW
+metadata_pws_pvdaq.1448731,1274,Residential - NOLA #31 - District A North,30.0017,90.0926,10,180,15,5760,29.3526,Sunpower,320 (e19),Monocrystalline Silicon,SMA,SB6000
+metadata_pws_pvdaq.1448732,1216,[1216] Mercury Solar Systems - Array 6,40.995,73.668,75,180,10,8100,44.787,SunPower,SPR-225-BLK,Monocrystalline Silicon,SunPower,8000f
+metadata_pws_pvdaq.1448733,1430,[1430] NREL Mesa 1-axis,39.7438,105.1779,1831,,,720720,,Sanyo,HIP-195-BA3,,Advanced Energy,Solaron 333 kVA
+metadata_pws_pvdaq.1448734,1431,[1431] NREL Windsite PV 1-axis,39.9094,105.2311,1850,,,1082850,,Evergreen Solar,"ES-190, ES-195",,Advanced Energy,Solaron 333 kVA
+metadata_pws_pvdaq.1448735,1432,[1432] NREL S&TF,39.7422,105.1719,1780,175,10,94050,,Evergreen Solar,ES-190,,Satcon,75 kVA
+metadata_pws_pvdaq.1448736,1433,[1433] NREL RSF1,39.7404,105.1719,1780,180,10,449280,,SunPower,"SPR-315E-WHT
+",,Satcon,"250kVA, 375kVA"
+metadata_pws_pvdaq.1448737,1442,"[1442] RTC,NREL,Met Station",39.7406,105.1774,1793.7,180,30,0,0,,,,,
+metadata_pws_pvdaq.1448738,1444,"[1444] RTC, NREL, PV Life Jinko Trina QCells",39.7397,105.174,1793.7,180,30,29120,,"Jinko, Trina, QCells","JKM260, JKM265, TSM260, TSM255BLK, Q.Plus 280, Q.Peak 290 BLK",,ABB ,Trio 20.0
+metadata_pws_pvdaq.1448739,1217,[1217] Mercury Solar Systems - Array 2,40.995,73.668,75,180,10,4100,31.451,Evergreen,ES-A-205,Ribbon Silicon,Fronius,IG+ 3.8
+metadata_pws_pvdaq.1448740,1218,[1218] Mercury Solar Systems - Array 7,40.995,73.668,75,180,5,7920,60.235,Schott,Poly-220,Polycrystalline Silicon,Fronius,IG+ 7.5
+metadata_pws_pvdaq.1448741,1405,"[1405] RTC,SNL Met Station",35.0549,106.5433,1658,,,,,,,,,
+metadata_pws_pvdaq.1448742,1250,Residential - NOLA #7 - District B,29.951,90.0812,10,178,33,3450,25.4955,Canadian Solar,CS5P-230,Polycrystalline Silicon,Aurora PowerOne,3.6kW
+metadata_pws_pvdaq.1448743,1252,Residential - NOLA #9 - District B,29.951,90.0812,10,195,33,4625,31.916,Schuco,185 MPE,Monocrystalline Silicon,Enphase,D-380
+metadata_pws_pvdaq.1448744,1253,Residential - NOLA #10 - District A South,29.951,90.0812,10,187,33,8460,57.9065,Canadian Solar,CS6P-235,Polycrystalline Silicon,Aurora PowerOne,4.2kW
+metadata_pws_pvdaq.1448745,1254,Residential - NOLA #11 - District A North,30.0017,90.0926,10,185,23,9200,49.764,Sunpower,230 (e18),Monocrystalline Silicon,SMA,SB5000 & SB3000
+metadata_pws_pvdaq.1448746,1255,Residential - NOLA #12 - District D,29.9922,90.0495,10,218,30,3360,23.352,Conergy,PM-240P,Polycrystalline Silicon,SMA,SB4000
+metadata_pws_pvdaq.1448747,4,[4] NREL x-Si #1,39.7406,105.1774,1795.3,180,40,1000,5.896,Sanyo,HIP 200-BA3,Monocrystalline Silicon,SMA,1800
+metadata_pws_pvdaq.1448748,10,[10] NREL CIS #1,39.7404,105.1774,1792.8,180,40,1120,12.065,Shell Solar,Eclipse 80,Copper Indium Selenide (CIS),SMA,
+metadata_pws_pvdaq.1448749,1236,[1236] Integrator #2 - Site E,40.374,74.469,250,190,10,295680,2049.01,Suntech,STP-280,Polycrystalline Silicon,SatCon Technology,Power Gate Plus 250kW
+metadata_pws_pvdaq.1448750,1261,Residential - NOLA #18 - District E,29.9809,90.0023,10,195,15,4140,30.5946,Canadian Solar,CS5P-230,Polycrystalline Silicon,PV Powered,3.5kW
+metadata_pws_pvdaq.1448751,1237,[1237] Integrator #2 - Site F,41.328,73.061,250,188,10,198990,1357.96,Suntech,STP-270,Polycrystalline Silicon,SatCon Technology,Power Gate Plus 75kW
+metadata_pws_pvdaq.1448752,3,[3] Residential #1b,39.7214,105.0972,1675,181.2,18.5,2720,43.23,UniSolar,PVL-136,Amorphous Silicon (single junction),Fronius,IG 3000
+metadata_pws_pvdaq.1448753,34,[34] Andre Agassi Preparatory Academy - Building A,36.1952,115.1582,620,180,11.2,146640,996.0278,Sharp ,NU-U240F1,Monocrystalline Silicon,SatCon Technology,135kW
+metadata_pws_pvdaq.1448754,2,[2] Residential #1a,39.7214,105.0972,1675,181.2,18.5,2912,22.82,Sharp,ND-208U1,Polycrystalline Silicon,Fronius,IG 4000
+metadata_pws_pvdaq.1448755,1202,[1202] Distributed Sun - 6 Executive Campus,39.9292,75.0472,19,230,10,51840,362.162,,,Monocrystalline Silicon,,
+metadata_pws_pvdaq.1448756,1203,[1203] Distributed Sun - EJ DeSeta,39.7325,75.5511,4,205,20,197470,1351.4,,,Monocrystalline Silicon,,
+metadata_pws_pvdaq.1448757,1204,[1204] Distributed Sun - The Wharf,39.8256,75.3828,10,140,5,78645,538.213,,,Monocrystalline Silicon,,
+metadata_pws_pvdaq.1448758,1207,[1207] Campbell Scientific Headquarters - 2-Axis Tracker,41.7356,111.8336,1382,,,13440,95.04,Kyocera,KD210GX-LPU,Monocrystalline Silicon,,
+metadata_pws_pvdaq.1448759,1208,[1208] NREL Visitor Parking Structure,39.7407,105.1694,1780,165,9.1,524160,2713.5081,SunPower,SPR-315E,Monocrystalline Silicon,SMA America,Sunny Central 250U
+metadata_pws_pvdaq.1448760,55,[55] NREL CIGS#5,39.7404,105.1771,1792.2,180,40,,,,,,,
