@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from tqdm import tqdm
 from io import StringIO
+import os
 
 # Creates a meta_data_dict that can be called with
 # meta_data_dict[system_id], and will provide
@@ -49,5 +50,5 @@ for system_id in tqdm(meta_data_dict):
     meta_data_dict[system_id]['data'] = time_gen
 
 # Write dict to file
-with open('PVDAQ_solar_energy.json', 'w') as outfile:
+with open(os.path.join("data", 'PVDAQ_solar_energy.json'), 'w') as outfile:
     json.dump(meta_data_dict, outfile)

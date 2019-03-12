@@ -1,8 +1,11 @@
 import json
 import numpy as np
 
-with open('PVDAQ_solar_energy_hourly.json', 'r') as fin:
-    with open('PVDAQ_solar_energy_hourly_clean.json', 'w') as fout:
+path_in = os.path.join("data", "PVDAQ_solar_energy_hourly.json")
+path_out = os.path.join("data", "PVDAQ_solar_energy_hourly_clean.json")
+
+with open(path_in, 'r') as fin:
+    with open(path_out, 'w') as fout:
         for line in fin:
             obj = json.loads(line)
             for key, value in obj.items():
