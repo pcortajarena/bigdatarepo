@@ -8,7 +8,7 @@ import os
 # Creates a meta_data_dict that can be called with
 # meta_data_dict[system_id], and will provide
 # all meta data for that system (solar panel installation)
-meta_data_file = 'metadata_pws_pvdaq.csv'
+meta_data_file = os.path.join("data", 'metadata_pws_pvdaq.csv')
 meta_data = pd.read_csv(meta_data_file)
 meta_data = meta_data.set_index('system_id')
 meta_data_dict = meta_data.to_dict('index')
