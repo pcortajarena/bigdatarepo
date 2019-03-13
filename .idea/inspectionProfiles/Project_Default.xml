@@ -1,0 +1,28 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="JSAnnotator" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="14">
+            <item index="0" class="java.lang.String" itemvalue="regex" />
+            <item index="1" class="java.lang.String" itemvalue="folium" />
+            <item index="2" class="java.lang.String" itemvalue="branca" />
+            <item index="3" class="java.lang.String" itemvalue="dateparser" />
+            <item index="4" class="java.lang.String" itemvalue="pandas" />
+            <item index="5" class="java.lang.String" itemvalue="tqdm" />
+            <item index="6" class="java.lang.String" itemvalue="typed-ast" />
+            <item index="7" class="java.lang.String" itemvalue="pylint" />
+            <item index="8" class="java.lang.String" itemvalue="wrapt" />
+            <item index="9" class="java.lang.String" itemvalue="isort" />
+            <item index="10" class="java.lang.String" itemvalue="astroid" />
+            <item index="11" class="java.lang.String" itemvalue="MarkupSafe" />
+            <item index="12" class="java.lang.String" itemvalue="numpy" />
+            <item index="13" class="java.lang.String" itemvalue="Jinja2" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
