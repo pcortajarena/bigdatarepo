@@ -29,7 +29,7 @@ def request_api(lat, lon, month, year, counter):
     enddate = '{year:04d}-{month:02d}-{day:02d}'\
         .format(year=year, month=month, day=calendar.monthrange(year, month)[1])
     key = API_KEYS[counter//490]
-    url = '{mainurl}?q={lat:5.3f},{lon:5.3f}&date={startdate}&enddate={enddate}&tp={tp:1d}&format={format}&key={key}'
+    url = '{mainurl}?q={lat},{lon}&date={startdate}&enddate={enddate}&tp={tp:1d}&format={format}&key={key}'
     url = url.format(mainurl=mainurl,lat=lat, lon=lon, tp=tp, format=f,
                      startdate=startdate, enddate=enddate, key=key)
     print(url)
@@ -41,7 +41,7 @@ def request_api(lat, lon, month, year, counter):
     except:
         pass
 
-    with open('../data/test/{}-{}-{}-{}-{}.json'
+    with open('../data/solar-weather-jsons/{}-{}-{}-{}-{}.json'
                       .format(lat, lon, month, year, counter), 'w') as outfile:
         json.dump(response, outfile)
 
@@ -50,19 +50,34 @@ if __name__ == "__main__":
         solar_data = json.load(f)
 
     counter = 0
+    farms = dict()
     for k,v in solar_data.items():
-        lat = v['site_latitude']
-        lon = v['site_longitude']
+        lat = '{:5.3f}'.format(v['site_latitude'])
+        lon = '{:5.3f}'.format(v['site_longitude'])
         if 'data' not in v:
             continue
         data = v['data']
         if data is None or len(data) == 0:
             continue
-        start = parse(data[0][0])
-        end = parse(data[-1][0])
-        month = start.month
-        year = start.year
-        while year < end.year or (year == end.year and month <= end.month):
+        
+        startdate = parse(data[0][0])
+        enddate = parse(data[-1][0])
+        if (lat, lon) not in farms:
+            farms[(lat, lon)] = dict()
+            farms[(lat, lon)]['startdate'] = startdate
+            farms[(lat, lon)]['enddate'] = enddate
+            continue
+        
+        if startdate < farms[(lat, lon)]['startdate']:
+            farms[(lat, lon)]['startdate'] = startdate
+        
+        if enddate > farms[(lat, lon)]['enddate']:
+            farms[(lat, lon)]['enddate'] = enddate
+
+    for (lat,lon),v in farms.items():
+        month = v['startdate'].month
+        year = v['startdate'].year
+        while year < v['enddate'].year or (year == v['enddate'].year and month <= v['enddate'].month):
             counter += 1
             request_api(lat, lon, month, year, counter)
 
