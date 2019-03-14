@@ -139,3 +139,4 @@ data/PVDAQ_solar_energy_hourly.json
 ML_LSTM_1.ipynb
 
 data/solar-weather-jsons
+data/wind-weather-jsons
