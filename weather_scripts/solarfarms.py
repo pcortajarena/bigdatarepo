@@ -2,6 +2,7 @@ import json
 import requests
 import calendar
 from dateparser import parse
+import os
 
 API_KEYS=[
     '0fc0f26c3b264533aeb135149191303',
@@ -18,17 +19,19 @@ API_KEYS=[
 
 API_KEYS_COUNTER = 0
 
-def request_api(lat, lon, month, year):
+def request_api(lat, lon, month, year, counter):
 
     # yyyy-MM-dd
     mainurl = 'https://api.worldweatheronline.com/premium/v1/past-weather.ashx'
     tp = 1
     f = 'json'
     startdate = '{year:04d}-{month:02d}-01'.format(year=year, month=month)
-    enddate = '{year:04d}-{month:02d}-{day:02d}'.format(year=year, month=month, day=calendar.monthrange(year, month)[1])
-    key = API_KEYS[API_KEYS_COUNTER]
+    enddate = '{year:04d}-{month:02d}-{day:02d}'\
+        .format(year=year, month=month, day=calendar.monthrange(year, month)[1])
+    key = API_KEYS[counter//490]
     url = '{mainurl}?q={lat:5.3f},{lon:5.3f}&date={startdate}&enddate={enddate}&tp={tp:1d}&format={format}&key={key}'
-    url = url.format(mainurl=mainurl,lat=lat, lon=lon, tp=tp, format=f, startdate=startdate, enddate=enddate, key=key)
+    url = url.format(mainurl=mainurl,lat=lat, lon=lon, tp=tp, format=f,
+                     startdate=startdate, enddate=enddate, key=key)
     print(url)
 
     # Request the data
@@ -38,8 +41,8 @@ def request_api(lat, lon, month, year):
     except:
         pass
 
-    with open('../data/solar-weather-jsons/{}-{}-{}-{}.json'.format(lat, lon, month, year),
-              'w') as outfile:
+    with open('../data/test/{}-{}-{}-{}-{}.json'
+                      .format(lat, lon, month, year, counter), 'w') as outfile:
         json.dump(response, outfile)
 
 if __name__ == "__main__":
@@ -61,11 +64,7 @@ if __name__ == "__main__":
         year = start.year
         while year < end.year or (year == end.year and month <= end.month):
             counter += 1
-            if counter > 490:
-                counter = 0
-                API_KEYS_COUNTER += 1
-
-            request_api(lat, lon, month, year)
+            request_api(lat, lon, month, year, counter)
 
             if month == 12:
                 year += 1
@@ -73,7 +72,7 @@ if __name__ == "__main__":
             else:
                 month += 1
 
-            print(counter)
+    print(counter)
 
 
 
