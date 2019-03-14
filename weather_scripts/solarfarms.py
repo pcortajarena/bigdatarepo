@@ -38,8 +38,8 @@ def request_api(lat, lon, month, year, counter):
     try:
         response = requests.get(url)
         response = json.loads(response.text)
-    except:
-        pass
+    except Exception as e: 
+        print(e)
 
     with open('../data/solar-weather-jsons/{}-{}-{}-{}-{}.json'
                       .format(lat, lon, month, year, counter), 'w') as outfile:
