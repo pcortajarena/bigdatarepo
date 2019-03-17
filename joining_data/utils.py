@@ -15,7 +15,7 @@ class WeatherAPI:
 
         # Creating the filename depending on solar or wind data
         filename = '-'.join(parts) if tp == 'solar' else '_'.join(parts)
-        path = '{}/{}-weather-jsons/{}'.format(data_folder, tp, filename)
+        path = '../{}/{}-weather-jsons/{}'.format(data_folder, tp, filename)
 
         # Getting all files that contain information about the coordinates lat and lon
         paths = glob(path+'*')
@@ -24,11 +24,10 @@ class WeatherAPI:
         # Load all files for that location in memory (just loaded and read it once)
         for filename in paths:
             splitted_filename = filename.split('-' if tp == 'solar' else '_')
-            month = splitted_filename[2]
-            year = splitted_filename[3]
+            month = splitted_filename[4]
+            year = splitted_filename[5]
             with open(filename) as f:
                 self.weather[(month, year)] = json.load(f)
-
 
 
     def get_weather_data(self, time):
@@ -43,8 +42,11 @@ class WeatherAPI:
         day_item = None
 
         # Getting the weather data we need
-        weather_data = self.weather[(month, year)]['data']['weather']
-            
+        try:
+            weather_data = self.weather[(month, year)]['data']['weather']
+        except KeyError:
+            return None
+
         # Searching for the date and hour on the selected month and year
         for d in weather_data:
             if d['date'] == time.strftime('%Y-%m-%d'):
@@ -53,7 +55,7 @@ class WeatherAPI:
                         day_item = d
                         hour_item = h
                         break
-        
+
         # Mapping the attributes to the output
         output['sunHour'] = float(day_item['sunHour'])
         output['moon_illumination'] = int(day_item['astronomy'][0]['moon_illumination'])
