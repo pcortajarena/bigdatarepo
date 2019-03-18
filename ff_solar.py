@@ -34,6 +34,7 @@ import io
 import deep_learning_common as dlc
 from sklearn.preprocessing import LabelEncoder
 from dateutil.parser import parse
+import preprocess_solar as p_solar
 
 """## Load data"""
 
@@ -51,25 +52,9 @@ def load_data():
       path = os.path.join('data', 'solar_energy_with_weather.csv')
     
     df = pd.read_csv(path)
+    df.drop(['Unnamed: 0'], axis=1, inplace=True)
     return df
 
-"""## Prepare data"""
-def clean_data(df):
-    encoder = LabelEncoder()
-    
-    col_to_encode = ["inverter_mfg","inverter_model","module_mfg","module_model","module_tech","inverter_mfg"]
-    
-    for col in col_to_encode:
-      df[col] = df[col].fillna('undefined')
-      df[col] = encoder.fit_transform(df[col].astype(str))
-      
-    df['time'] = df.time.apply(lambda time: parse(time))
-    df['year'] = df.time.apply(lambda time: time.timetuple().tm_year)
-    df['yday'] = df.time.apply(lambda time: time.timetuple().tm_yday)
-    df['hour'] = df.time.apply(lambda time: time.timetuple().tm_hour)
-    
-    df.drop(['Unnamed: 0','time'], axis=1, inplace=True)
-    return df
 
 def split_x_y(dataset):
     y_col = 'energy'
@@ -115,7 +100,7 @@ if __name__ == '__main__':
     EPOCHS = 100
 
     dataset = load_data()
-    dataset = clean_data(dataset)
+    dataset = p_solar.clean_data(dataset)
     train_all, test = dlc.split_train_test(dataset, test_size=TEST_SIZE)
     train_partial, validation = dlc.split_train_test(train_all, test_size=TEST_SIZE)
 

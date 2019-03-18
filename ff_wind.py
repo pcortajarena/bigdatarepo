@@ -32,8 +32,8 @@ from keras import optimizers
 import os
 import io
 import deep_learning_common as dlc
-from sklearn.preprocessing import LabelEncoder
-from dateutil.parser import parse
+import preprocess_wind as p_wind
+
 
 """## Load data"""
 
@@ -51,17 +51,9 @@ def load_data():
       path = os.path.join('data', 'wind_energy_with_weather.csv')
     
     df = pd.read_csv(path)
+    df.drop(['Unnamed: 0'], axis=1, inplace=True)
     return df
 
-"""## Prepare data"""
-def clean_data(df):      
-    df['time'] = df.time.apply(lambda time: parse(time))
-    df['year'] = df.time.apply(lambda time: time.timetuple().tm_year)
-    df['yday'] = df.time.apply(lambda time: time.timetuple().tm_yday)
-    df['hour'] = df.time.apply(lambda time: time.timetuple().tm_hour)
-    
-    df.drop(['Unnamed: 0','time'], axis=1, inplace=True)
-    return df
 
 def split_x_y(dataset):
     y_col = 'energy'
@@ -107,7 +99,7 @@ if __name__ == '__main__':
     EPOCHS = 100000
 
     dataset = load_data()
-    dataset = clean_data(dataset)
+    dataset = p_wind.clean_data(dataset)
     train_all, test = dlc.split_train_test(dataset, test_size=TEST_SIZE)
     train_partial, validation = dlc.split_train_test(train_all, test_size=TEST_SIZE)
 
