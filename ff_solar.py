@@ -66,6 +66,7 @@ def clean_data(df):
     df['time'] = df.time.apply(lambda time: parse(time))
     df['year'] = df.time.apply(lambda time: time.timetuple().tm_year)
     df['yday'] = df.time.apply(lambda time: time.timetuple().tm_yday)
+    df['hour'] = df.time.apply(lambda time: time.timetuple().tm_hour)
     
     df.drop(['Unnamed: 0','time'], axis=1, inplace=True)
     return df
