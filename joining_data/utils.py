@@ -10,12 +10,12 @@ class WeatherAPI:
         It loads the files related to lat and lon in memory to easy and fast access
         '''
         lat = '{:5.3f}'.format(lat)
-        lon = '{:5.3f}'.format(lon)
+        lon = '-{:5.3f}'.format(lon)
         parts = [lat, lon]
 
         # Creating the filename depending on solar or wind data
-        filename = '-'.join(parts) if tp == 'solar' else '_'.join(parts)
-        path = '../{}/{}-weather-jsons/{}'.format(data_folder, tp, filename)
+        filename = '_'.join(parts)
+        path = '../{}/{}-weather-jsons-2/{}'.format(data_folder, tp, filename)
 
         # Getting all files that contain information about the coordinates lat and lon
         paths = glob(path+'*')
@@ -23,9 +23,9 @@ class WeatherAPI:
 
         # Load all files for that location in memory (just loaded and read it once)
         for filename in paths:
-            splitted_filename = filename.split('-' if tp == 'solar' else '_')
-            month = splitted_filename[4]
-            year = splitted_filename[5]
+            splitted_filename = filename.split('_')
+            month = splitted_filename[2]
+            year = splitted_filename[3]
             with open(filename) as f:
                 self.weather[(month, year)] = json.load(f)
 
