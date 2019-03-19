@@ -8,7 +8,7 @@ def common_clean_data(df):
     df['yday'] = df.time.apply(lambda time: time.timetuple().tm_yday)
     df['hour'] = df.time.apply(lambda time: time.timetuple().tm_hour)
     df['sin_hour'] = df.hour.apply(lambda hour: np.sin(np.pi*hour/12))
-    df['sin_month'] = df.time.apply(lambda time: np.sin(np.pi*time.timetuple().tm_month/12))
+    df['sin_month'] = df.time.apply(lambda time: np.sin(np.pi*time.timetuple().tm_mon/12))
     
     
     df.drop(['time'], axis=1, inplace=True)
