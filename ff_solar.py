@@ -123,5 +123,5 @@ if __name__ == '__main__':
     # RuntimeError: Cannot clone object <keras.wrappers.scikit_learn.KerasClassifier object at 0x7fbeb7fc1128>, as the constructor either does not set or modifies parameter X
     # train_all_x, train_all_y = split_x_y(train_all)
     # 
-    # dlc.tune_model(train_all_x, train_all_y, create_lstm_model)
+    # dlc.tune_model_grid_keras(train_all_x, train_all_y, create_lstm_model)
 

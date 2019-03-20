@@ -1,6 +1,6 @@
 import numpy as np
 from keras.wrappers.scikit_learn import KerasClassifier
-from sklearn.model_selection import GridSearchCV, StratifiedKFold
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, StratifiedKFold
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from sklearn.model_selection import train_test_split
 
@@ -32,21 +32,7 @@ def fit_model(model, train_x_values, train_y_values, val_x_values, val_y_values,
 
 """## Hyperparameter tuning"""
 
-"""Hyperparameter optimization with grid search for regression"""
-def tune_model(x, y, create_model, param_grid, n_splits=10):
-    global RANDOM_STATE
-    # create model
-    model = KerasClassifier(build_fn=create_model, X=x, Y=y)
-    
-    cv = StratifiedKFold(n_splits, shuffle=True, random_state=RANDOM_STATE)
-    
-    grid = GridSearchCV(
-        estimator=model,
-        param_grid=param_grid,
-        cv=cv,
-        scoring='neg_mean_squared_error',
-        n_jobs=-1 # in parallel
-    ) 
+def _tune_hyperparameters(grid, x, y):
     grid_result = grid.fit(x.values, y.values)
     # summarize results
     print("Best: %f using %s" % (grid_result.best_score_, grid_result.best_params_))
@@ -55,3 +41,66 @@ def tune_model(x, y, create_model, param_grid, n_splits=10):
     params = grid_result.cv_results_['params']
     for mean, stdev, param in zip(means, stds, params):
         print("%f (%f) with: %r" % (mean, stdev, param))
+
+"""Hyperparameter optimization with grid search for regression"""
+def tune_model_grid_keras(x, y, create_model, param_distributions, n_splits=10, n_iter=10):
+    global RANDOM_STATE
+    # create model
+    model = KerasClassifier(build_fn=create_model, X=x, Y=y)
+    
+    grid = GridSearchCV(
+        estimator=model,
+        param_distributions=param_distributions,
+        n_iter=n_iter,
+        cv=n_splits,
+        scoring='neg_mean_squared_error',
+        random_state=RANDOM_STATE,
+        n_jobs=-1 # in parallel
+    ) 
+    _tune_hyperparameters(grid, x, y)
+
+
+def tune_model_randomized_keras(x, y, create_model, param_distributions, n_splits=10, n_iter=10):
+    global RANDOM_STATE
+    # create model
+    model = KerasClassifier(build_fn=create_model, X=x, Y=y)
+    
+    grid = RandomizedSearchCV(
+        estimator=model,
+        param_distributions=param_distributions,
+        n_iter=n_iter,
+        cv=n_splits,
+        scoring='neg_mean_squared_error',
+        random_state=RANDOM_STATE,
+        n_jobs=-1 # in parallel
+    ) 
+    _tune_hyperparameters(grid, x, y)
+
+def tune_model_grid(x, y, model, param_distributions, n_splits=10, n_iter=10):
+    global RANDOM_STATE
+    # create model
+    grid = GridSearchCV(
+        estimator=model,
+        param_distributions=param_distributions,
+        n_iter=n_iter,
+        cv=n_splits,
+        scoring='neg_mean_squared_error',
+        random_state=RANDOM_STATE,
+        n_jobs=-1 # in parallel
+    ) 
+    _tune_hyperparameters(grid, x, y)
+
+def tune_model_randomized(x, y, model, param_distributions, n_splits=10, n_iter=10):
+    global RANDOM_STATE
+    # create model
+    grid = RandomizedSearchCV(
+        estimator=model,
+        param_distributions=param_distributions,
+        n_iter=n_iter,
+        cv=n_splits,
+        scoring='neg_mean_squared_error',
+        random_state=RANDOM_STATE,
+        n_jobs=-1 # in parallel
+    ) 
+    _tune_hyperparameters(grid, x, y)
+
