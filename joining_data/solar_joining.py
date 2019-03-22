@@ -28,7 +28,7 @@ if __name__ == "__main__":
                 item = {}
                 time = parse(d[0])
                 item['lat'] = lat
-                item['lon'] = lon
+                item['lon'] = -lon
                 item['elev'] = v.get('site_elevation')
                 item['azi'] = v.get('site_azimuth')
                 item['tilt'] = v.get('site_tilt')
@@ -51,4 +51,4 @@ if __name__ == "__main__":
                 pbar.update(1)
 
     df = pd.DataFrame(output)
-    df.to_csv('solar_energy_with_weather.csv')
+    df.to_csv('solar_energy_with_weather_2.csv')

@@ -41,7 +41,7 @@ def request_api(lat, lon, month, year, counter):
     except Exception as e: 
         print(e)
 
-    with open('../data/solar-weather-jsons/{}-{}-{}-{}-{}.json'
+    with open('../data/solar-weather-jsons-2/{}_{}_{}_{}_{}.json'
                       .format(lat, lon, month, year, counter), 'w') as outfile:
         json.dump(response, outfile)
 
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     farms = dict()
     for k,v in solar_data.items():
         lat = '{:5.3f}'.format(v['site_latitude'])
-        lon = '{:5.3f}'.format(v['site_longitude'])
+        lon = '-{:5.3f}'.format(v['site_longitude'])
         if 'data' not in v:
             continue
         data = v['data']
