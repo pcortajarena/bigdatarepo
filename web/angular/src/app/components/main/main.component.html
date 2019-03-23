@@ -1,0 +1,112 @@
+<div class="m-3">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-card class="mb-4">
+      <div class="row mb-3">
+        <div class="col">
+          <mat-slide-toggle formControlName="isSolar_Ctrl">
+            <span *ngIf="!isSolar">Wind</span>
+            <span *ngIf="isSolar">Solar</span>
+          </mat-slide-toggle>
+        </div>
+      </div>
+      <div *ngIf="isSolar">
+        <h4>Solar farm configuration</h4>
+        <div class="row">
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Inverter mfg</mat-label>
+              <mat-select formControlName="inverter_mfg_Ctrl">
+                <mat-option *ngFor="let data of Inverter_mfg_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Inverter model</mat-label>
+              <mat-select formControlName="inverter_model_Ctrl">
+                <mat-option *ngFor="let data of Inverter_model_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Module mfg</mat-label>
+              <mat-select formControlName="module_mfg_Ctrl">
+                <mat-option *ngFor="let data of Module_mfg_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Module model</mat-label>
+              <mat-select formControlName="module_model_Ctrl">
+                <mat-option *ngFor="let data of Module_model_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Module tech</mat-label>
+              <mat-select formControlName="module_tech_Ctrl">
+                <mat-option *ngFor="let data of Module_tech_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <mat-form-field>
+            <input matInput [matDatepicker]="dp" placeholder="Start date" [max]="form.get('endDateCtrl').value" formControlName="startDateCtrl">
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event, 'startDateCtrl')"
+              (monthSelected)="chosenMonthHandler($event, dp, 'startDateCtrl')">
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-auto">
+          <mat-form-field>
+            <input matInput [matDatepicker]="dp2" placeholder="End date" [min]="form.get('startDateCtrl').value" formControlName="endDateCtrl">
+            <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+            <mat-datepicker #dp2 startView="multi-year" (yearSelected)="chosenYearHandler($event, 'endDateCtrl')"
+              (monthSelected)="chosenMonthHandler($event, dp2, 'endDateCtrl')">
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-auto">
+          <button type="submit" mat-raised-button color="primary" [disabled]="!form.valid">Calculate</button>
+        </div>
+        <div class="col-auto m-tb-auto">
+          <div *ngIf="!form.controls['coordinateCtrl'].valid">
+            <span>Please select a coordinate in the map</span>
+          </div>
+        </div>
+      </div>
+
+    </mat-card>
+    <div class="row">
+      <div class="col-xs-12 col-lg-6" [ngClass]="{'col-lg-12':!chartDatasets || !chartDatasets.length}">
+        <app-map formControlName="coordinateCtrl"></app-map>
+      </div>
+      <div class="col-xs-12 col-lg-6">
+        <app-chart *ngIf="chartDatasets && chartDatasets.length" [chartDatasets]="chartDatasets"
+          [chartLabels]="chartLabels"></app-chart>
+      </div>
+    </div>
+  </form>
+</div>
