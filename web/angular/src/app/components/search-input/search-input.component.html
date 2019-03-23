@@ -80,7 +80,7 @@
 
     </mat-card>
     <div class="row">
-      <div class="col-xs-12 col-lg-8">
+      <div class="col-xs-12 col-lg-8" [ngClass]="{'col-lg-12':!chartDatasets || !chartDatasets.length}">
         <app-map formControlName="coordinateCtrl"></app-map>
       </div>
       <div class="col-xs-12 col-lg-4">
