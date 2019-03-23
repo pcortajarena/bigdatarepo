@@ -1,6 +1,6 @@
-import { WeatherRequest, SolarFarmConfiguration } from './../../model/models';
-import { WeatherService } from './../../services/weather.service';
-import { EnumsService } from './../../services/enums.service';
+import { WeatherRequest, SolarFarmConfiguration } from '../../model/models';
+import { WeatherService } from '../../services/weather.service';
+import { EnumsService } from '../../services/enums.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
@@ -31,9 +31,9 @@ export const MY_FORMATS = {
 };
 
 @Component({
-  selector: 'app-search-input',
-  templateUrl: './search-input.component.html',
-  styleUrls: ['./search-input.component.scss'],
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss'],
   providers: [
     // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
     // application's root module. We provide it at the component level here, due to limitations of
@@ -43,7 +43,7 @@ export const MY_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
 })
-export class SearchInputComponent implements OnInit {
+export class MainComponent implements OnInit {
   form: FormGroup;
   isSolar: boolean;
   chartDatasets: Array<any> = [];

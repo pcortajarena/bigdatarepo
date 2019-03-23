@@ -60,14 +60,14 @@ const modules = [
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
-import { SearchInputComponent } from './components/search-input/search-input.component';
+import { MainComponent } from './components/main/main.component';
 import { MapComponent } from './components/map/map.component';
 import { ChartComponent } from './components/chart/chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchInputComponent,
+    MainComponent,
     MapComponent,
     ChartComponent,
   ],

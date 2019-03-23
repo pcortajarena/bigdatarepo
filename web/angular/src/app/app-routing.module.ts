@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SearchInputComponent } from './components/search-input/search-input.component';
-import { routeNames } from './route-names';
+import { MainComponent } from './components/main/main.component';
 
 
 const routes: Routes = [
-  { path: '', component: SearchInputComponent, pathMatch: 'full' },
-  { path: '**', component: SearchInputComponent},
+  { path: '', component: MainComponent, pathMatch: 'full' },
+  { path: '**', component: MainComponent},
 ];
 
 @NgModule({
