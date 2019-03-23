@@ -24,6 +24,8 @@ def create_model(**kwargs):
 
 if __name__ == '__main__':  
     TEST_SIZE = 0.20
+    GOOGLE_COLAB = False
+    SOLAR = True
 
     dataset = dlc.load_cleaned_data(GOOGLE_COLAB, SOLAR)
     train_all, test = dlc.split_train_test(dataset, test_size=TEST_SIZE)
