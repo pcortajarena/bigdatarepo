@@ -66,6 +66,26 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-auto">
+          <mat-form-field>
+            <input matInput [matDatepicker]="dp" placeholder="Start date" [max]="form.get('endDateCtrl').value" formControlName="startDateCtrl">
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event, 'startDateCtrl')"
+              (monthSelected)="chosenMonthHandler($event, dp, 'startDateCtrl')">
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-auto">
+          <mat-form-field>
+            <input matInput [matDatepicker]="dp2" placeholder="End date" [min]="form.get('startDateCtrl').value" formControlName="endDateCtrl">
+            <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+            <mat-datepicker #dp2 startView="multi-year" (yearSelected)="chosenYearHandler($event, 'endDateCtrl')"
+              (monthSelected)="chosenMonthHandler($event, dp2, 'endDateCtrl')">
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-auto">
@@ -80,10 +100,10 @@
 
     </mat-card>
     <div class="row">
-      <div class="col-xs-12 col-lg-8" [ngClass]="{'col-lg-12':!chartDatasets || !chartDatasets.length}">
+      <div class="col-xs-12 col-lg-6" [ngClass]="{'col-lg-12':!chartDatasets || !chartDatasets.length}">
         <app-map formControlName="coordinateCtrl"></app-map>
       </div>
-      <div class="col-xs-12 col-lg-4">
+      <div class="col-xs-12 col-lg-6">
         <app-chart *ngIf="chartDatasets && chartDatasets.length" [chartDatasets]="chartDatasets"
           [chartLabels]="chartLabels"></app-chart>
       </div>

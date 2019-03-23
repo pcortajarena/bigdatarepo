@@ -190,17 +190,13 @@ export interface Module_tech {
 }
 
 export class SolarFarmConfiguration {
-  inverter_mfg: Inverter_mfg;
-  inverter_model: Inverter_model;
-  module_mfg: Module_mfg;
-  module_model: Module_model;
-  module_tech: Module_tech;
+  inverter_mfg: number;
+  inverter_model: number;
+  module_mfg: number;
+  module_model: number;
+  module_tech: number;
 }
 
-export enum WeatherType {
-  SOLAR,
-  WIND
-}
 
 export class Coordinate {
   lat: number;
@@ -209,9 +205,9 @@ export class Coordinate {
 
 export class WeatherRequest {
   farmConfiguration?: SolarFarmConfiguration;
-  type: WeatherType;
-  month?: number;
-  year: number;
+  solar: boolean;
+  startMonthYear: string;
+  endMonthYear: string;
   coordinate: Coordinate;
 }
 

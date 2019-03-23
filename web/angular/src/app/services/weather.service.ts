@@ -3,16 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import * as moment from 'moment';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
 
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   getWeather(weatherRequest: WeatherRequest): Observable<WeatherResponse> {
+    // return this.http.post('http://localhost:4200', JSON.stringify(weatherRequest));
     const resp = new WeatherResponse();
     resp.data = [];
 

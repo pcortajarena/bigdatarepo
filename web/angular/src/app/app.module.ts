@@ -73,6 +73,7 @@ import { ChartComponent } from './components/chart/chart.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ...modules,
   ],
