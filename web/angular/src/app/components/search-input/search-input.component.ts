@@ -34,9 +34,30 @@ export class SearchInputComponent implements OnInit {
       module_mfg_Ctrl: [null, Validators.required],
       module_model_Ctrl: [null, Validators.required],
       module_tech_Ctrl: [null, Validators.required],
+      coordinateCtrl: [null, Validators.required],
     });
     this.form.controls['isSolar_Ctrl'].valueChanges.subscribe(boolean => {
       this.isSolar = boolean;
+      const required = Validators.required;
+      if (this.isSolar) {
+        this.form.controls['inverter_mfg_Ctrl'].setValidators(required);
+        this.form.controls['inverter_model_Ctrl'].setValidators(required);
+        this.form.controls['module_mfg_Ctrl'].setValidators(required);
+        this.form.controls['module_model_Ctrl'].setValidators(required);
+        this.form.controls['module_tech_Ctrl'].setValidators(required);
+      } else {
+        this.form.controls['inverter_mfg_Ctrl'].clearValidators();
+        this.form.controls['inverter_model_Ctrl'].clearValidators();
+        this.form.controls['module_mfg_Ctrl'].clearValidators();
+        this.form.controls['module_model_Ctrl'].clearValidators();
+        this.form.controls['module_tech_Ctrl'].clearValidators();
+      }
+
+      this.form.controls['inverter_mfg_Ctrl'].updateValueAndValidity();
+      this.form.controls['inverter_model_Ctrl'].updateValueAndValidity();
+      this.form.controls['module_mfg_Ctrl'].updateValueAndValidity();
+      this.form.controls['module_model_Ctrl'].updateValueAndValidity();
+      this.form.controls['module_tech_Ctrl'].updateValueAndValidity();
     });
   }
   ngOnInit(): void {
