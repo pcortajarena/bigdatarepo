@@ -16,9 +16,11 @@ export enum Inverter_mfg_keys {
   ABB = 'ABB',
 }
 
-export type Inverter_mfg = {
-  [key in Inverter_mfg_keys]: number;
-};
+// tslint:disable-next-line:class-name
+export interface Inverter_mfg {
+  key: Inverter_mfg_keys;
+  value: number;
+}
 
 export enum Inverter_model_keys {
   IG_7_5 = 'IG+ 7.5',
@@ -67,9 +69,11 @@ export enum Inverter_model_keys {
   Tripower_20kW = 'Tripower 20kW',
 }
 
-export type Inverter_model = {
-  [key in Inverter_model_keys]: number;
-};
+// tslint:disable-next-line:class-name
+export interface Inverter_model {
+  key: Inverter_model_keys;
+  value: number;
+}
 
 export enum Module_mfg_keys {
   SunPower = 'SunPower',
@@ -98,9 +102,11 @@ export enum Module_mfg_keys {
   Suniva = 'Suniva',
 }
 
-export type Module_mfg = {
-  [key in Module_mfg_keys]: number;
-};
+// tslint:disable-next-line:class-name
+export interface Module_mfg {
+  key: Module_mfg_keys;
+  value: number;
+}
 
 export enum Module_model_keys {
   NU_U240F1 = 'NU-U240F1',
@@ -160,9 +166,11 @@ export enum Module_model_keys {
   PM_235P = 'PM-235P',
 }
 
-export type Module_model = {
-  [key in Module_model_keys]: number;
-};
+// tslint:disable-next-line:class-name
+export interface Module_model {
+  key: Module_model_keys;
+  value: number;
+}
 
 export enum Module_tech_keys {
   Monocrystalline_Silicon = 'Monocrystalline Silicon',
@@ -175,9 +183,11 @@ export enum Module_tech_keys {
   Copper_Indium_Selenide_CIS = 'Copper Indium Selenide (CIS)',
 }
 
-export type Module_tech = {
-  [key in Module_tech_keys]: number;
-};
+// tslint:disable-next-line:class-name
+export interface Module_tech {
+  key: Module_tech_keys;
+  value: number;
+}
 
 export class SolarFarmConfiguration {
   inverter_mfg: Inverter_mfg;
@@ -206,7 +216,7 @@ export class WeatherRequest {
 }
 
 export class DailyEnergy {
-  date: Date;
+  date: string;
   energy: number;
 }
 

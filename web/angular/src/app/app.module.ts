@@ -62,12 +62,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { MapComponent } from './components/map/map.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchInputComponent,
     MapComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,

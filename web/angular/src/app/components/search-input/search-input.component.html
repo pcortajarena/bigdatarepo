@@ -1,21 +1,82 @@
-<div class="container">
-  <form>
-    <mat-slide-toggle [(ngModel)]="isSolar" name="isSolar">
-      <span *ngIf="!isSolar">Wind</span>
-      <span *ngIf="isSolar">Solar</span>
-    </mat-slide-toggle>
-    <app-map></app-map>
+<div class="m-3">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-card class="mb-4">
+      <div class="row mb-3">
+        <div class="col">
+          <mat-slide-toggle formControlName="isSolar_Ctrl">
+            <span *ngIf="!isSolar">Wind</span>
+            <span *ngIf="isSolar">Solar</span>
+          </mat-slide-toggle>
+        </div>
+      </div>
+      <div *ngIf="isSolar">
+        <h4>Solar farm configuration</h4>
+        <div class="row">
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Inverter mfg</mat-label>
+              <mat-select formControlName="inverter_mfg_Ctrl">
+                <mat-option *ngFor="let data of Inverter_mfg_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Inverter model</mat-label>
+              <mat-select formControlName="inverter_model_Ctrl">
+                <mat-option *ngFor="let data of Inverter_model_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Module mfg</mat-label>
+              <mat-select formControlName="module_mfg_Ctrl">
+                <mat-option *ngFor="let data of Module_mfg_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Module model</mat-label>
+              <mat-select formControlName="module_model_Ctrl">
+                <mat-option *ngFor="let data of Module_model_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-auto">
+            <mat-form-field>
+              <mat-label>Module tech</mat-label>
+              <mat-select formControlName="module_tech_Ctrl">
+                <mat-option *ngFor="let data of Module_tech_list" [value]="data.value">
+                  {{data.key}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" mat-raised-button color="primary" [disabled]="!form.valid && isSolar">Calculate</button>
+    </mat-card>
+    <div class="row">
+      <div class="col-xs-12 col-lg-8">
+        <app-map></app-map>
+      </div>
+      <div class="col-xs-12 col-lg-4">
+        <app-chart *ngIf="chartDatasets && chartDatasets.length" [chartDatasets]="chartDatasets"
+          [chartLabels]="chartLabels"></app-chart>
+      </div>
+    </div>
   </form>
-  <div style="display: block">
-    <canvas mdbChart
-        [chartType]="chartType"
-        [datasets]="chartDatasets"
-        [labels]="chartLabels"
-        [colors]="chartColors"
-        [options]="chartOptions"
-        [legend]="true"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)">
-    </canvas>
-  </div>
 </div>
