@@ -28,7 +28,10 @@ if __name__ == '__main__':
     TEST_SIZE = 0.20
     GOOGLE_COLAB = False
     SOLAR = True
-
+    path = os.path.join(os.path.dirname(__file__), 'models')
+    MODEL_NAME = 'xgboost_solar.dat' if SOLAR else 'xgboost_wind.dat'
+    if not GOOGLE_COLAB:
+        MODEL_NAME = os.path.join(path, MODEL_NAME)
     dataset = dlc.load_cleaned_data(GOOGLE_COLAB, SOLAR)
     train_all, test = dlc.split_train_test(dataset, test_size=TEST_SIZE)
     train_partial, validation = dlc.split_train_test(train_all, test_size=TEST_SIZE)

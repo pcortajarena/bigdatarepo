@@ -61,7 +61,6 @@ def tune_model(x, y, create_model, n_splits=10):
     batch_size = [10, 20, 40, 60, 80, 100]
     epochs = [10, 50, 100]
     
-    
     param_grid = dict(kernel_initializer=dlc.kernel_initializer, activation=dlc.activation, \
                       optimizer=dlc.optimizer, weight_constraint=weight_constraint,  \
                      dense_neurons=dense_neurons, \
@@ -75,8 +74,11 @@ if __name__ == '__main__':
     BATCH_SIZE = 1000
     GOOGLE_COLAB = True
     SOLAR = True
-    MODEL_NAME = 'ff_solar.h5' if SOLAR else 'ff_wind.h5' 
-
+    path = os.path.join(os.path.dirname(__file__), 'models')
+    MODEL_NAME = 'ff_solar.h5' if SOLAR else 'ff_wind.h5'
+    if not GOOGLE_COLAB:
+        MODEL_NAME = os.path.join(path, MODEL_NAME)
+    
     dataset = dlc.load_cleaned_data(GOOGLE_COLAB, SOLAR)
     train_all, test = dlc.split_train_test(dataset, test_size=TEST_SIZE)
     train_partial, validation = dlc.split_train_test(train_all, test_size=TEST_SIZE)
@@ -84,19 +86,15 @@ if __name__ == '__main__':
     train_partial_x, train_partial_y = dlc.split_x_y(train_partial)
     validation_x, validation_y = dlc.split_x_y(validation)
 
-    
     model = create_feed_forward_model(train_partial_x, train_partial_y)  
     train_partial_x_values = train_partial_x.values
     train_partial_y_values = train_partial_y.values
     validation_x_values = validation_x.values
     validation_y_values = validation_y.values
     
-    
     model = dlc.fit_keras_model(model, train_partial_x_values, train_partial_y_values, validation_x_values, validation_y_values, model_name=MODEL_NAME, epochs=EPOCHS, batch_size=BATCH_SIZE)
-    
-        
+         
     """## Hyperparameter tuning experiments"""
-    
     # RuntimeError: Cannot clone object <keras.wrappers.scikit_learn.KerasClassifier object at 0x7fbeb7fc1128>, as the constructor either does not set or modifies parameter X
     # train_all_x, train_all_y = split_x_y(train_all)
     # 
