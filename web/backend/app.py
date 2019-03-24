@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS
 from model import WeatherRequest, WeatherResponse, DailyEnergy
 from api import WeatherAPI
 import json
@@ -15,6 +16,7 @@ import pickle
 
 solar_x = ['DewPointC','FeelsLikeC','HeatIndexC','WindChillC','WindGustKmph','area','azi','cloudcover','elev','humidity','inverter_mfg','inverter_model','lat','lon','maxtempC','mintempC','module_mfg','module_model','module_tech','moon_illumination','power','precipMM','pressure','sunHour','tempC','temperaweatherCodeture','tilt','uvIndex','visibility','winddirDegree','windspeedKmph','year','yday','hour','sin_hour','sin_month']
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 def body(class_):
     def wrap(f):
