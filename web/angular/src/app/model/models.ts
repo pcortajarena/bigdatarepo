@@ -190,11 +190,11 @@ export interface Module_tech {
 }
 
 export class SolarFarmConfiguration {
-  inverter_mfg: number;
-  inverter_model: number;
-  module_mfg: number;
-  module_model: number;
-  module_tech: number;
+  inverter_mfg: string;
+  inverter_model: string;
+  module_mfg: string;
+  module_model: string;
+  module_tech: string;
 }
 
 
@@ -206,8 +206,8 @@ export class Coordinate {
 export class WeatherRequest {
   farmConfiguration?: SolarFarmConfiguration;
   solar: boolean;
-  startMonthYear: string;
-  endMonthYear: string;
+  startMonthYear: string; // MM/YYYY
+  endMonthYear: string; // MM/YYYY
   coordinate: Coordinate;
 }
 

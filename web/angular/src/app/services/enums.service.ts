@@ -29,11 +29,9 @@ export class EnumsService {
   }
   create_key_value_list(keys_enum): any[] {
     const list = [];
-    let i = 0;
     for (const key in keys_enum) {
       if (key in keys_enum) {
-        list.push({ key: keys_enum[key], value: i });
-        i++;
+        list.push({ key: keys_enum[key], value: keys_enum[key] });
       }
     }
     return list;
