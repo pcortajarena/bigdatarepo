@@ -195,6 +195,11 @@ export class SolarFarmConfiguration {
   module_mfg: string;
   module_model: string;
   module_tech: string;
+  area: number;
+  tilt: number;
+  azi: number;
+  elev: number;
+  power: number;
 }
 
 

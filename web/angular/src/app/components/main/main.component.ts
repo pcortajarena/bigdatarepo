@@ -67,6 +67,11 @@ export class MainComponent implements OnInit {
       module_mfg_Ctrl: [null, Validators.required],
       module_model_Ctrl: [null, Validators.required],
       module_tech_Ctrl: [null, Validators.required],
+      area_Ctrl: [null, Validators.required],
+      tilt_Ctrl: [null, Validators.required],
+      azi_Ctrl: [null, Validators.required],
+      elev_Ctrl: [null, Validators.required],
+      power_Ctrl: [null, Validators.required],
       coordinateCtrl: [null, Validators.required],
       startDateCtrl: [moment(), Validators.required],
       endDateCtrl: [moment(), Validators.required],
@@ -106,6 +111,11 @@ export class MainComponent implements OnInit {
       module_mfg_Ctrl,
       module_model_Ctrl,
       module_tech_Ctrl,
+      area_Ctrl,
+      tilt_Ctrl,
+      azi_Ctrl,
+      elev_Ctrl,
+      power_Ctrl,
       coordinateCtrl,
       startDateCtrl,
       endDateCtrl,
@@ -118,12 +128,19 @@ export class MainComponent implements OnInit {
       solarFarmConfiguration.module_mfg = module_mfg_Ctrl;
       solarFarmConfiguration.module_model = module_model_Ctrl;
       solarFarmConfiguration.module_tech = module_tech_Ctrl;
+      solarFarmConfiguration.area = area_Ctrl;
+      solarFarmConfiguration.tilt = tilt_Ctrl;
+      solarFarmConfiguration.azi = azi_Ctrl;
+      solarFarmConfiguration.elev = elev_Ctrl;
+      solarFarmConfiguration.power = power_Ctrl;
       req.farmConfiguration = solarFarmConfiguration;
     }
     req.solar = isSolar_Ctrl;
     req.coordinate = coordinateCtrl;
     req.startMonthYear = startDateCtrl.format('MM/YYYY');
     req.endMonthYear = endDateCtrl.format('MM/YYYY');
+    req.endMonthYear = "02/2019";
+    req.startMonthYear = "02/2019";
     this.weatherService.getWeather(req).subscribe(weatherResponse => {
       const label = this.isSolar ? 'Solar energy generated' : 'Wind energy generated';
       this.chartDatasets = [

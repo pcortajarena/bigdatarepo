@@ -14,6 +14,35 @@
         <div class="row">
           <div class="col-auto">
             <mat-form-field>
+              <input matInput type="number" min="0" step="0.1" placeholder="Area" formControlName="area_Ctrl">
+            </mat-form-field>
+          </div>
+          <div class="col-auto">
+            <mat-form-field>
+              <input matInput type="number" min="0" step="0.1" placeholder="Tilt" formControlName="tilt_Ctrl">
+            </mat-form-field>
+          </div>
+          <div class="col-auto">
+            <mat-form-field>
+              <input matInput type="number" min="0" step="0.1" placeholder="Azi" formControlName="azi_Ctrl">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <mat-form-field>
+              <input matInput type="number" min="0" step="0.1" placeholder="Elevation" formControlName="elev_Ctrl">
+            </mat-form-field>
+          </div>
+          <div class="col-auto">
+            <mat-form-field>
+              <input matInput type="number" min="0" step="0.1" placeholder="Power" formControlName="power_Ctrl">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <mat-form-field>
               <mat-label>Inverter mfg</mat-label>
               <mat-select formControlName="inverter_mfg_Ctrl">
                 <mat-option *ngFor="let data of Inverter_mfg_list" [value]="data.value">
