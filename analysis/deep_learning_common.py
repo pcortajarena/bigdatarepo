@@ -5,6 +5,7 @@ from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, StratifiedKFold
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from sklearn.model_selection import train_test_split
+import pickle
 
 RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
@@ -36,10 +37,13 @@ def load_cleaned_data(google_colab = True, solar = True):
 
 """## Split data"""  
 
-def split_x_y(dataset):
+def split_x_y(dataset, solar=True):
     y_col = 'energy'
-  
-    train_x = dataset[solar_x]
+    
+    if solar:
+        train_x = dataset[solar_x]
+    else:
+        train_x = dataset.drop([y_col], axis=1) # TODO change if we get wind farm configuration
     train_y = dataset[[y_col]]
     return train_x, train_y
 
@@ -60,6 +64,13 @@ def fit_keras_model(model, train_x_values, train_y_values, val_x_values, val_y_v
           epochs=epochs, \
           verbose=verbose, \
           callbacks=[early_stopping, model_checkpoint]) 
+    return model
+
+def fit_xgboost_model(model, train_x_values, train_y_values, val_x_values, val_y_values, verbose=1, model_name='my_model.dat'):
+    model.fit(train_x_values, train_y_values, \
+          eval_set  = [(val_x_values, val_y_values)], \
+          verbose=verbose)
+    pickle.dump(model, open(model_name, "wb"))
     return model
 
 """## Hyperparameter tuning"""

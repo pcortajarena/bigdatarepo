@@ -12,6 +12,8 @@ from sklearn.metrics import mean_squared_error
 import os
 import io
 import deep_learning_common as dlc
+import importlib
+importlib.reload(dlc)
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection  import StratifiedKFold
 from scipy.stats import randint, uniform
@@ -34,12 +36,17 @@ if __name__ == '__main__':
     train_partial_x, train_partial_y = dlc.split_x_y(train_partial)
     validation_x, validation_y = dlc.split_x_y(validation)
     
-    xg_reg = xgb.XGBRegressor(objective ='reg:linear', colsample_bytree = 0.3, learning_rate = 0.1,
+    xg_reg = create_model(objective ='reg:linear', colsample_bytree = 0.3, learning_rate = 0.1,
                 max_depth = 5, alpha = 10, n_estimators = 10)
-
-    xg_reg.fit(train_partial_x,train_partial_y)
     
-    preds = xg_reg.predict(validation_x)
+    train_partial_x_values = train_partial_x.values
+    train_partial_y_values = train_partial_y.values
+    validation_x_values = validation_x.values
+    validation_y_values = validation_y.values
+
+    model = dlc.fit_xgboost_model(xg_reg, train_partial_x_values, train_partial_y_values, validation_x_values, validation_y_values, model_name=MODEL_NAME)
+    
+    preds = model.predict(validation_x_values)
     
     mse = mean_squared_error(validation_y, preds)
     print("MSE: %f" % (mse))
