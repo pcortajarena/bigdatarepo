@@ -90,7 +90,7 @@ if __name__ == '__main__':
     validation_y_values = validation_y.values
     
     
-    model = dlc.fit_model(model, train_partial_x_values, train_partial_y_values, validation_x_values, validation_y_values, model_name=MODEL_NAME, epochs=EPOCHS, batch_size=BATCH_SIZE)
+    model = dlc.fit_keras_model(model, train_partial_x_values, train_partial_y_values, validation_x_values, validation_y_values, model_name=MODEL_NAME, epochs=EPOCHS, batch_size=BATCH_SIZE)
     
         
     """## Hyperparameter tuning experiments"""
