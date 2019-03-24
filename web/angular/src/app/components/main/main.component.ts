@@ -49,6 +49,12 @@ export class MainComponent implements OnInit {
   chartDatasets: Array<any> = [];
   chartLabels: Array<any> = [];
 
+  readonly jan2019 = moment('01-01-2019');
+
+  lastMonth = moment().subtract('1', 'month');
+  startDate = this.jan2019;
+  endDate = this.jan2019;
+
   Inverter_mfg_list = this.enumsService.Inverter_mfg_list;
   Inverter_model_list = this.enumsService.Inverter_model_list;
   Module_mfg_list = this.enumsService.Module_mfg_list;
@@ -73,8 +79,14 @@ export class MainComponent implements OnInit {
       elev_Ctrl: [null, Validators.required],
       power_Ctrl: [null, Validators.required],
       coordinateCtrl: [null, Validators.required],
-      startDateCtrl: [moment(), Validators.required],
-      endDateCtrl: [moment(), Validators.required],
+      startDateCtrl: [this.startDate, Validators.required],
+      endDateCtrl: [this.endDate, Validators.required],
+    });
+    this.form.controls['startDateCtrl'].valueChanges.subscribe(date => {
+      this.startDate = date;
+    });
+    this.form.controls['endDateCtrl'].valueChanges.subscribe(date => {
+      this.endDate = date;
     });
     this.form.controls['isSolar_Ctrl'].valueChanges.subscribe(boolean => {
       this.isSolar = boolean;
@@ -139,8 +151,6 @@ export class MainComponent implements OnInit {
     req.coordinate = coordinateCtrl;
     req.startMonthYear = startDateCtrl.format('MM/YYYY');
     req.endMonthYear = endDateCtrl.format('MM/YYYY');
-    req.endMonthYear = "02/2019";
-    req.startMonthYear = "02/2019";
     this.weatherService.getWeather(req).subscribe(weatherResponse => {
       const label = this.isSolar ? 'Solar energy generated' : 'Wind energy generated';
       this.chartDatasets = [
