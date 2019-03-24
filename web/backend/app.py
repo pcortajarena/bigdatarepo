@@ -72,7 +72,7 @@ def get_energy(body):
     items = WeatherResponse()
     for time, row in df.iterrows():
         energy = row['energy']
-        items.data.append(DailyEnergy(time.isoformat(), float(energy)).__dict__)
+        items.data.append(DailyEnergy(time.strftime('%d/%m/%Y'), f'{energy:.3f}').__dict__)
     return json.dumps(items.__dict__)
  
 if __name__ == "__main__":
