@@ -13,7 +13,7 @@ from cleaning import preprocess_solar
 from cleaning import preprocess_wind
 import pickle
 
-
+solar_x = ['DewPointC','FeelsLikeC','HeatIndexC','WindChillC','WindGustKmph','area','azi','cloudcover','elev','humidity','inverter_mfg','inverter_model','lat','lon','maxtempC','mintempC','module_mfg','module_model','module_tech','moon_illumination','power','precipMM','pressure','sunHour','tempC','temperaweatherCodeture','tilt','uvIndex','visibility','winddirDegree','windspeedKmph','year','yday','hour','sin_hour','sin_month']
 app = Flask(__name__)
 
 def body(class_):
@@ -52,9 +52,10 @@ def get_energy(body):
     # Calling preprocessing step
     if body.solar:
         processed_df = preprocess_solar.clean_data(df)
+        processed_df = processed_df[solar_x]
     else:
         processed_df = preprocess_wind.clean_data(df)
-
+    
     # Calling predict for all the hours
     path = os.path.join(os.path.dirname(__file__), '..', '..', 'analysis', 'models', 'xgboost_solar.dat')
     model = pickle.load(open(path, "rb"))

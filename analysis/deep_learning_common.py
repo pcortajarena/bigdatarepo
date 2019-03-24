@@ -12,6 +12,7 @@ np.random.seed(RANDOM_STATE)
 kernel_initializer = ['uniform', 'lecun_uniform', 'normal', 'zero', 'glorot_normal', 'glorot_uniform', 'he_normal', 'he_uniform']
 activation = ['softmax', 'softplus', 'softsign', 'relu', 'tanh', 'sigmoid', 'hard_sigmoid', 'linear']
 optimizer = ['SGD', 'RMSprop', 'Adagrad', 'Adadelta', 'Adam', 'Adamax', 'Nadam']
+solar_x = ['DewPointC','FeelsLikeC','HeatIndexC','WindChillC','WindGustKmph','area','azi','cloudcover','elev','humidity','inverter_mfg','inverter_model','lat','lon','maxtempC','mintempC','module_mfg','module_model','module_tech','moon_illumination','power','precipMM','pressure','sunHour','tempC','temperaweatherCodeture','tilt','uvIndex','visibility','winddirDegree','windspeedKmph','year','yday','hour','sin_hour','sin_month']
 
 """## Load data"""
 
@@ -38,7 +39,7 @@ def load_cleaned_data(google_colab = True, solar = True):
 def split_x_y(dataset):
     y_col = 'energy'
   
-    train_x = dataset.drop([y_col], axis=1)
+    train_x = dataset[solar_x]
     train_y = dataset[[y_col]]
     return train_x, train_y
 
