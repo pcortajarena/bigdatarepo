@@ -1,7 +1,8 @@
-import preprocess as p
+from . import preprocess as p
 from sklearn.preprocessing import LabelEncoder
 
 def clean_data(df):
+    df = df.copy()
     encoder = LabelEncoder()
     
     col_to_encode = ["inverter_mfg","inverter_model","module_mfg","module_model","module_tech","inverter_mfg"]

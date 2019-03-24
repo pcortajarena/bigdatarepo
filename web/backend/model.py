@@ -1,10 +1,19 @@
+from collections import namedtuple
+
 class SolarFarmConfiguration:
-    def __init__(self, inverter_mfg, inverter_model, module_mfg, module_model, module_tech):
+    def __init__(self, inverter_mfg, inverter_model, module_mfg, module_model,
+                 module_tech, area, azi, elev, power, tilt):
         self.inverter_mfg = inverter_mfg
         self.inverter_model = inverter_model
         self.module_mfg = module_mfg
         self.module_model = module_model
         self.module_tech = module_tech
+        self.area = area
+        self.azi = azi
+        self.elev = elev
+        self.power = power
+        self.tilt = tilt
+
 
 class Coordinate:
     def __init__(self, lat, lon):
@@ -20,8 +29,10 @@ class WeatherRequest:
         self.coordinate = Coordinate(**coordinate)
 
 class DailyEnergy:
-    date = ""
-    energy = int()
+    def __init__(self, date, energy):
+        self.date = date
+        self.energy = energy
 
 class WeatherResponse:
-    data = [DailyEnergy()]
+    def __init__(self):
+        self.data = []
