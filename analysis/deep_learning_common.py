@@ -50,7 +50,7 @@ def split_train_test(dataset, test_size=0.20):
 
 
 """Fit function for a regression model"""
-def fit_model(model, train_x_values, train_y_values, val_x_values, val_y_values, epochs=100, batch_size=10, verbose=1, patience=5, model_name='my_model.h5'):
+def fit_keras_model(model, train_x_values, train_y_values, val_x_values, val_y_values, epochs=100, batch_size=10, verbose=1, patience=5, model_name='my_model.h5'):
     early_stopping = EarlyStopping(monitor='val_loss', patience=patience)
     model_checkpoint = ModelCheckpoint(model_name, save_best_only=True, save_weights_only=False, monitor='val_loss', mode='min')
     model.fit(train_x_values, train_y_values, \
