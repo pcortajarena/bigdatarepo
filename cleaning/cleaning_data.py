@@ -1,7 +1,7 @@
 import os
 import pandas as pd
-import preprocess_solar as p_solar
-import preprocess_wind as p_wind
+from cleaning import preprocess_solar as p_solar
+from cleaning import preprocess_wind as p_wind
 
 def load_data(google_colab = True, solar = True):
     SOLAR_FILE_NAME = 'solar_energy_with_weather_2.csv'
@@ -21,11 +21,11 @@ def load_data(google_colab = True, solar = True):
       drive.mount('/content/drive', force_remount=True)
       DATAPATH = os.path.join('drive', 'My Drive', 'data')
     else:
-      DATAPATH = os.path.join('..','data')
+      DATAPATH = os.path.join('data')
       
     path = os.path.join(DATAPATH, FILENAME)
     cleaned_path = os.path.join(DATAPATH, FILENAME_CLEANED)
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, low_memory=False)
     df.drop(['Unnamed: 0'], axis=1, inplace=True)
     return df, CLEANING_LIB, cleaned_path
 

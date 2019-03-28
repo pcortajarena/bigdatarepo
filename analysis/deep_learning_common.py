@@ -6,7 +6,7 @@ from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, Stratified
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from sklearn.model_selection import train_test_split
 import pickle
-import variables as v
+import analysis.variables as v
 import xgboost as xgb
 import importlib
 importlib.reload(v)
@@ -34,7 +34,7 @@ def load_cleaned_data(google_colab = True, solar = True):
       drive.mount('/content/drive', force_remount=True)
       path = os.path.join('drive', 'My Drive', 'data', FILENAME)
     else:
-      path = os.path.join('..','data', FILENAME)
+      path = os.path.join('data', FILENAME)
     
     df = pd.read_csv(path)
     return df
@@ -90,18 +90,15 @@ def _tune_hyperparameters(grid, x, y):
         print("%f (%f) with: %r" % (mean, stdev, param))
 
 """Hyperparameter optimization with grid search for regression"""
-def tune_model_grid_keras(x, y, create_model, param_distributions, n_splits=10, n_iter=10):
-    global RANDOM_STATE
+def tune_model_grid_keras(x, y, create_model, param_grid, n_splits=10):
     # create model
     model = KerasClassifier(build_fn=create_model, X=x, Y=y)
     
     grid = GridSearchCV(
-        estimator=model,
-        param_distributions=param_distributions,
-        n_iter=n_iter,
+        model,
+        param_grid,
         cv=n_splits,
         scoring='neg_mean_squared_error',
-        random_state=RANDOM_STATE,
         n_jobs=-1 # in parallel
     ) 
     _tune_hyperparameters(grid, x, y)
@@ -123,16 +120,13 @@ def tune_model_randomized_keras(x, y, create_model, param_distributions, n_split
     ) 
     _tune_hyperparameters(grid, x, y)
 
-def tune_model_grid(x, y, model, param_distributions, n_splits=10, n_iter=10):
-    global RANDOM_STATE
+def tune_model_grid(x, y, model, param_grid, n_splits=10):
     # create model
     grid = GridSearchCV(
-        estimator=model,
-        param_distributions=param_distributions,
-        n_iter=n_iter,
+        model,
+        param_grid,
         cv=n_splits,
         scoring='neg_mean_squared_error',
-        random_state=RANDOM_STATE,
         n_jobs=-1 # in parallel
     ) 
     _tune_hyperparameters(grid, x, y)

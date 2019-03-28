@@ -31,7 +31,7 @@ from keras import optimizers
 
 import os
 import io
-import deep_learning_common as dlc
+import analysis.deep_learning_common as dlc
 import importlib
 importlib.reload(dlc)
 from sklearn.preprocessing import LabelEncoder
@@ -67,13 +67,14 @@ def tune_model(x, y, create_model, n_splits=10):
                      dense_neurons=dense_neurons, \
                      batch_size=batch_size, epochs=epochs)
     
-    dlc.tune_model_grid_keras(x, y, create_model, param_grid, n_splits)
+    # dlc.tune_model_grid_keras(x, y, create_model, param_grid, n_splits)
+    dlc.tune_model_grid(x, y, create_model(x, y), param_grid, n_splits)
 
 if __name__ == '__main__':  
     TEST_SIZE = 0.20
-    EPOCHS = 100
+    EPOCHS = 1
     BATCH_SIZE = 1000
-    GOOGLE_COLAB = True
+    GOOGLE_COLAB = False
     SOLAR = True
     cwd = Path().resolve()
     path = os.path.join(os.path.dirname(str(cwd)), 'models')
@@ -98,7 +99,6 @@ if __name__ == '__main__':
          
     """## Hyperparameter tuning experiments"""
     # RuntimeError: Cannot clone object <keras.wrappers.scikit_learn.KerasClassifier object at 0x7fbeb7fc1128>, as the constructor either does not set or modifies parameter X
-    # train_all_x, train_all_y = split_x_y(train_all)
-    # 
-    # dlc.tune_model_grid_keras(train_all_x, train_all_y, create_feed_forward_model)
+    # train_all_x, train_all_y = dlc.split_x_y(train_all)
+    # tune_model(train_all_x, train_all_y, create_feed_forward_model)
 

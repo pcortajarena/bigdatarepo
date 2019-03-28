@@ -11,7 +11,7 @@ from sklearn.metrics import mean_squared_error
 
 import os
 import io
-import deep_learning_common as dlc
+import analysis.deep_learning_common as dlc
 import importlib
 importlib.reload(dlc)
 from sklearn.preprocessing import LabelEncoder
