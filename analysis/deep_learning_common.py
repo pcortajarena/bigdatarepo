@@ -77,6 +77,11 @@ def fit_xgboost_model(model, train_x_values, train_y_values, val_x_values, val_y
     pickle.dump(model, open(model_name, "wb"))
     return model
 
+def fit_svm_model(model, train_x_values, train_y_values, val_x_values, val_y_values, verbose=1, model_name='my_model.sav'):
+    model.fit(train_x_values, train_y_values)
+    pickle.dump(model, open(model_name, "wb"))
+    return model
+
 """## Hyperparameter tuning"""
 
 def _tune_hyperparameters(grid, x, y):
