@@ -61,7 +61,7 @@ def get_energy(body):
     # Calling predict for all the hours
     path = os.path.join('analysis', 'models', 'xgboost_solar.dat')
     model = pickle.load(open(path, "rb"))
-    # TODO: is the order of the columns the same that is been trained?
+    
     df['energy'] = model.predict(processed_df.values)
 
     # Aggregating data by day

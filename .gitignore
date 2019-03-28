@@ -132,8 +132,8 @@ sequence_figures_hourly
 
 data/PVDAQ_solar_energy_hourly_clean.json
 data/PVDAQ_solar_energy_hourly.json
-data/solar_energy_with_weather_2_cleaned.csv
-data/solar_energy_with_weather_2.csv
+data/solar_energy_with_weather_cleaned.csv
+data/solar_energy_with_weather.csv
 data/solar_energy_with_weather.csv
 data/wind_energy_with_weather_cleaned.csv
 

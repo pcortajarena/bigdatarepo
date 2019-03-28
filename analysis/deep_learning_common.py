@@ -22,7 +22,7 @@ optimizer = ['SGD', 'RMSprop', 'Adagrad', 'Adadelta', 'Adam', 'Adamax', 'Nadam']
 """## Load data"""
 
 def load_cleaned_data(google_colab = True, solar = True):
-    SOLAR_FILE_NAME = 'solar_energy_with_weather_2_cleaned.csv'
+    SOLAR_FILE_NAME = 'solar_energy_with_weather_cleaned.csv'
     WIND_FILE_NAME = 'wind_energy_with_weather_cleaned.csv'
     FILENAME = SOLAR_FILE_NAME if solar else WIND_FILE_NAME
 
@@ -74,6 +74,11 @@ def fit_xgboost_model(model, train_x_values, train_y_values, val_x_values, val_y
     model.fit(train_x_values, train_y_values, \
           eval_set  = [(val_x_values, val_y_values)], \
           verbose=verbose)
+    pickle.dump(model, open(model_name, "wb"))
+    return model
+
+def fit_svm_model(model, train_x_values, train_y_values, val_x_values, val_y_values, verbose=1, model_name='my_model.sav'):
+    model.fit(train_x_values, train_y_values)
     pickle.dump(model, open(model_name, "wb"))
     return model
 
