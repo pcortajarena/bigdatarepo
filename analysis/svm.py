@@ -4,7 +4,7 @@
 import pandas as pd
 import numpy as np
 from sklearn import svm
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 from pathlib import Path
 import os
 import analysis.deep_learning_common as dlc
@@ -52,3 +52,5 @@ if __name__ == '__main__':
     print("MSE: %f" % (mse))
     rmse = np.sqrt(mse)
     print("RMSE: %f" % (rmse))
+    mae = mean_absolute_error(validation_y, preds)
+    print("MAE: %f" % (mae))
