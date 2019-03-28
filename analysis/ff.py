@@ -46,6 +46,8 @@ def create_feed_forward_model(X, Y, kernel_initializer='uniform',activation='rel
     # define model
     input_1 = Input(shape=(n_features,))
     x = Dense(dense_neurons, activation=activation)(input_1)
+    for i in range(3):
+      x = Dense(dense_neurons, activation=activation)(x)
               
     output = Dense(1, activation='linear')(x)
     
