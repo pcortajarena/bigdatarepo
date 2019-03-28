@@ -16,6 +16,7 @@ import pandas as pd
 from keras.preprocessing.sequence import pad_sequences
 from keras.preprocessing.text import Tokenizer
 
+from keras import optimizers
 from keras.layers import Dense, LSTM, Embedding
 from keras.layers import Conv1D, MaxPooling1D, Flatten, GlobalMaxPooling1D, BatchNormalization
 from keras.layers import Concatenate, Subtract, Multiply
@@ -88,7 +89,9 @@ if __name__ == '__main__':
     train_partial_x, train_partial_y = dlc.split_x_y(train_partial)
     validation_x, validation_y = dlc.split_x_y(validation)
 
-    model = create_feed_forward_model(train_partial_x, train_partial_y)  
+    adam = optimizers.Adam(lr=0.000001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+
+    model = create_feed_forward_model(train_partial_x, train_partial_y, optimizer=adam)  
     train_partial_x_values = train_partial_x.values
     train_partial_y_values = train_partial_y.values
     validation_x_values = validation_x.values
