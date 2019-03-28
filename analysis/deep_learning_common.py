@@ -6,6 +6,11 @@ from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, Stratified
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from sklearn.model_selection import train_test_split
 import pickle
+import variables as v
+import xgboost as xgb
+import importlib
+importlib.reload(v)
+from matplotlib import pyplot
 
 RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
@@ -13,7 +18,6 @@ np.random.seed(RANDOM_STATE)
 kernel_initializer = ['uniform', 'lecun_uniform', 'normal', 'zero', 'glorot_normal', 'glorot_uniform', 'he_normal', 'he_uniform']
 activation = ['softmax', 'softplus', 'softsign', 'relu', 'tanh', 'sigmoid', 'hard_sigmoid', 'linear']
 optimizer = ['SGD', 'RMSprop', 'Adagrad', 'Adadelta', 'Adam', 'Adamax', 'Nadam']
-solar_x = ['DewPointC','FeelsLikeC','HeatIndexC','WindChillC','WindGustKmph','area','azi','cloudcover','elev','humidity','inverter_mfg','inverter_model','lat','lon','maxtempC','mintempC','module_mfg','module_model','module_tech','moon_illumination','power','precipMM','pressure','sunHour','tempC','temperaweatherCodeture','tilt','uvIndex','visibility','winddirDegree','windspeedKmph','year','yday','hour','sin_hour','sin_month']
 
 """## Load data"""
 
@@ -41,7 +45,7 @@ def split_x_y(dataset, solar=True):
     y_col = 'energy'
     
     if solar:
-        train_x = dataset[solar_x]
+        train_x = dataset[v.solar_x]
     else:
         train_x = dataset.drop([y_col], axis=1) # TODO change if we get wind farm configuration
     train_y = dataset[[y_col]]
@@ -147,3 +151,11 @@ def tune_model_randomized(x, y, model, param_distributions, n_splits=10, n_iter=
     ) 
     _tune_hyperparameters(grid, x, y)
 
+"""## Feature importance xgboost"""
+def feature_importance_xgboost(model, solar=True, w=15, h=10):
+    global pyplot
+    feature_names = v.solar_x if solar else v.wind_x
+    fig, ax = pyplot.subplots(figsize=(15, 10))
+    model.get_booster().feature_names = feature_names
+    xgb.plot_importance(model, ax=ax)
+    pyplot.show()

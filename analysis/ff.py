@@ -36,6 +36,7 @@ import importlib
 importlib.reload(dlc)
 from sklearn.preprocessing import LabelEncoder
 from dateutil.parser import parse
+from pathlib import Path
 
 """## Model"""
 
@@ -74,7 +75,8 @@ if __name__ == '__main__':
     BATCH_SIZE = 1000
     GOOGLE_COLAB = True
     SOLAR = True
-    path = os.path.join(os.path.dirname(__file__), 'models')
+    cwd = Path().resolve()
+    path = os.path.join(os.path.dirname(str(cwd)), 'models')
     MODEL_NAME = 'ff_solar.h5' if SOLAR else 'ff_wind.h5'
     if not GOOGLE_COLAB:
         MODEL_NAME = os.path.join(path, MODEL_NAME)

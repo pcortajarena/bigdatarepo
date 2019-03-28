@@ -18,6 +18,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection  import StratifiedKFold
 from scipy.stats import randint, uniform
 from dateutil.parser import parse
+from pathlib import Path
 
 """## Model"""
 
@@ -28,7 +29,8 @@ if __name__ == '__main__':
     TEST_SIZE = 0.20
     GOOGLE_COLAB = False
     SOLAR = True
-    path = os.path.join(os.path.dirname(__file__), 'models')
+    cwd = Path().resolve()
+    path = os.path.join(os.path.dirname(str(cwd)), 'models')
     MODEL_NAME = 'xgboost_solar.dat' if SOLAR else 'xgboost_wind.dat'
     if not GOOGLE_COLAB:
         MODEL_NAME = os.path.join(path, MODEL_NAME)
@@ -72,3 +74,6 @@ if __name__ == '__main__':
                     max_depth = 5, alpha = 10, n_estimators = 2)
     dlc.tune_model_randomized(all_x, all_y, model, param_distributions)
 
+    """## Feature importance """
+
+    dlc.feature_importance_xgboost(model, SOLAR)
