@@ -72,12 +72,11 @@ def tune_model(x, y, create_model, n_splits=10):
 
 if __name__ == '__main__':  
     TEST_SIZE = 0.20
-    EPOCHS = 1
+    EPOCHS = 10
     BATCH_SIZE = 1000
     GOOGLE_COLAB = False
     SOLAR = True
-    cwd = Path().resolve()
-    path = os.path.join(os.path.dirname(str(cwd)), 'models')
+    path = os.path.join('analysis', 'models')
     MODEL_NAME = 'ff_solar.h5' if SOLAR else 'ff_wind.h5'
     if not GOOGLE_COLAB:
         MODEL_NAME = os.path.join(path, MODEL_NAME)
