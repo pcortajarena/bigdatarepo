@@ -1,20 +1,20 @@
 from flask import Flask, request
 from flask_cors import CORS
-from model import WeatherRequest, WeatherResponse, DailyEnergy
-from api import WeatherAPI
+from web.backend.model import WeatherRequest, WeatherResponse, DailyEnergy
+from web.backend.api import WeatherAPI
 import json
 import calendar
 from datetime import datetime, timedelta
 import pandas as pd
 import sys, os.path
-cleaning_dir = (os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-print(cleaning_dir)
-sys.path.append(cleaning_dir)
+# cleaning_dir = (os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+# print(cleaning_dir)
+# sys.path.append(cleaning_dir)
 from cleaning import preprocess_solar
 from cleaning import preprocess_wind
+import analysis.variables as v
 import pickle
 
-solar_x = ['DewPointC','FeelsLikeC','HeatIndexC','WindChillC','WindGustKmph','area','azi','cloudcover','elev','humidity','inverter_mfg','inverter_model','lat','lon','maxtempC','mintempC','module_mfg','module_model','module_tech','moon_illumination','power','precipMM','pressure','sunHour','tempC','temperaweatherCodeture','tilt','uvIndex','visibility','winddirDegree','windspeedKmph','year','yday','hour','sin_hour','sin_month']
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
@@ -54,12 +54,12 @@ def get_energy(body):
     # Calling preprocessing step
     if body.solar:
         processed_df = preprocess_solar.clean_data(df)
-        processed_df = processed_df[solar_x]
+        processed_df = processed_df[v.solar_x]
     else:
         processed_df = preprocess_wind.clean_data(df)
     
     # Calling predict for all the hours
-    path = os.path.join(os.path.dirname(__file__), '..', '..', 'analysis', 'models', 'xgboost_solar.dat')
+    path = os.path.join('analysis', 'models', 'xgboost_solar.dat')
     model = pickle.load(open(path, "rb"))
     # TODO: is the order of the columns the same that is been trained?
     df['energy'] = model.predict(processed_df.values)
