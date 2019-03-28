@@ -7,7 +7,7 @@ import numpy as np
 
 
 import xgboost as xgb
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 import os
 import io
@@ -57,6 +57,8 @@ if __name__ == '__main__':
     print("MSE: %f" % (mse))
     rmse = np.sqrt(mse)
     print("RMSE: %f" % (rmse))
+    mae = mean_absolute_error(validation_y, preds)
+    print("MAE: %f" % (mae))
 
     """## Hyperparameter tuning experiments"""
 

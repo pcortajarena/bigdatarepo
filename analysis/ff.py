@@ -51,7 +51,7 @@ def create_feed_forward_model(X, Y, kernel_initializer='uniform',activation='rel
     model = Model(inputs=[input_1], 
                   outputs=output)
 
-    model.compile(loss='mse', optimizer=optimizer)
+    model.compile(loss='mse', metrics=['mae'], optimizer=optimizer)
     return model
 
 """## Hyperparameter tuning"""
@@ -72,7 +72,7 @@ def tune_model(x, y, create_model, n_splits=10):
 
 if __name__ == '__main__':  
     TEST_SIZE = 0.20
-    EPOCHS = 10
+    EPOCHS = 1000
     BATCH_SIZE = 1000
     GOOGLE_COLAB = False
     SOLAR = True
