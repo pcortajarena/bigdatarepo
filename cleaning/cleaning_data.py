@@ -4,9 +4,9 @@ from cleaning import preprocess_solar as p_solar
 from cleaning import preprocess_wind as p_wind
 
 def load_data(google_colab = True, solar = True):
-    SOLAR_FILE_NAME = 'solar_energy_with_weather_2.csv'
+    SOLAR_FILE_NAME = 'solar_energy_with_weather.csv'
     WIND_FILE_NAME = 'wind_energy_with_weather.csv'
-    SOLAR_FILE_NAME_CLEANED = 'solar_energy_with_weather_2_cleaned.csv'
+    SOLAR_FILE_NAME_CLEANED = 'solar_energy_with_weather_cleaned.csv'
     WIND_FILE_NAME_CLEANED = 'wind_energy_with_weather_cleaned.csv'
 
     FILENAME = SOLAR_FILE_NAME if solar else WIND_FILE_NAME

@@ -11,4 +11,5 @@ def common_clean_data(df):
     df['sin_month'] = df.time.apply(lambda time: np.sin(np.pi*time.timetuple().tm_mon/12))
     
     df.drop(['time'], axis=1, inplace=True)
+    df.dropna(inplace=True)
     return df

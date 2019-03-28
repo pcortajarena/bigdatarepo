@@ -22,7 +22,7 @@ optimizer = ['SGD', 'RMSprop', 'Adagrad', 'Adadelta', 'Adam', 'Adamax', 'Nadam']
 """## Load data"""
 
 def load_cleaned_data(google_colab = True, solar = True):
-    SOLAR_FILE_NAME = 'solar_energy_with_weather_2_cleaned.csv'
+    SOLAR_FILE_NAME = 'solar_energy_with_weather_cleaned.csv'
     WIND_FILE_NAME = 'wind_energy_with_weather_cleaned.csv'
     FILENAME = SOLAR_FILE_NAME if solar else WIND_FILE_NAME
 
