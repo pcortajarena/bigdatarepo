@@ -142,3 +142,5 @@ ML_LSTM_1.ipynb
 data/solar-weather-jsons
 data/wind-weather-jsons
 data/solar_energy_with_weather.csv
+
+.DS_Store
