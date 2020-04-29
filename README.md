@@ -1,7 +1,9 @@
 # Energy forecasts driven by big data
 
-A web app allowing users to view historical and future solar energy generation.
+A web app allowing users to view historical and future solar energy generation.    
 The report can be found [here](https://drive.google.com/open?id=1CQBaUppiORZo2fs5DBOr_yuqdlKYKuuB).
+
+
 
 ## File structure
 |folder name| folder purpose                                                              |
