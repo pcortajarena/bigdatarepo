@@ -3,6 +3,7 @@
 A web app allowing users to view historical and future solar energy generation.    
 The report can be found [here](https://drive.google.com/open?id=1CQBaUppiORZo2fs5DBOr_yuqdlKYKuuB).
 
+![webapp](readme_images/web_interface.jpeg)
 
 
 ## File structure
@@ -15,3 +16,7 @@ The report can be found [here](https://drive.google.com/open?id=1CQBaUppiORZo2fs
 | joining  | Scripts for accumulating data into training sample                           |
 | weather  | Scripts for scraping weather APIs given plant locations                      |
 | web      | Code for the web app. Backend in Flask, frontend in Angular.                 |
+
+## System design
+
+![sysdesign](readme_images/system_design.png)
